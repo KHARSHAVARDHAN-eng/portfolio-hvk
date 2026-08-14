@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { projects } from '../../data/portfolioData';
 import { ProjectArchitecture } from '../arcade/ProjectArchitecture';
 import { sound } from '../../utils/sound';
-import { Cpu, ExternalLink, Target, ShieldAlert, CheckCircle } from 'lucide-react';
+import { Cpu, ExternalLink, Target, ShieldAlert, CheckCircle, FolderGit2 } from 'lucide-react';
 import { GithubIcon } from '../ui/Icons';
 
 export const ProjectsSection: React.FC = () => {
@@ -14,23 +14,17 @@ export const ProjectsSection: React.FC = () => {
     setActiveProjectIndex(idx);
   };
 
-  const projectScoreBadges = [
-    'GRAPHRAG★ 094,800',
-    'VISION★ 050,000',
-    'NEURAL★ 096,200',
-    'AUDIO★ 098,600'
-  ];
-
   return (
     <section id="projects" className="py-16 px-4 max-w-6xl mx-auto bg-[#140824] arcade-purple-grid">
-      {/* Stage Header */}
-      <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
-        STAGE 03 — MISSIONS UNLOCKED
+      {/* Section Header */}
+      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
+        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
+          [ SYSTEM ENGINEERING CASE STUDIES ]
+        </div>
+        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#ffffff] uppercase tracking-wider">
+          FEATURED PROJECTS
+        </h2>
       </div>
-
-      <h2 className="font-silkscreen text-2xl sm:text-4xl font-extrabold text-[#ffffff] uppercase tracking-wider mb-8">
-        PROJECTS UNLOCKED.
-      </h2>
 
       {/* Project Selector Tabs */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-8">
@@ -43,12 +37,12 @@ export const ProjectsSection: React.FC = () => {
               onMouseEnter={() => sound.playHover()}
               className={`p-4 text-left border-3 border-black transition-all ${
                 isSelected 
-                  ? 'bg-[#ffffff] text-[#120a21] shadow-[5px_5px_0px_#ff2a85] font-bold' 
-                  : 'bg-[#281845] text-[#ffffff] hover:border-[#ff2a85]'
+                  ? 'bg-[#fff5f8] text-[#120a21] shadow-[5px_5px_0px_#ff2a85] font-bold' 
+                  : 'bg-[#261442] text-[#ffffff] hover:border-[#ff2a85]'
               }`}
             >
               <div className="font-silkscreen text-[10px] text-[#ff2a85] mb-1 font-bold">
-                {projectScoreBadges[idx]}
+                PROJECT 0{idx + 1}
               </div>
               <div className="font-chakra font-bold text-sm sm:text-base line-clamp-2">
                 {proj.title}
@@ -65,7 +59,7 @@ export const ProjectsSection: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="bg-[#ff2a85] text-white font-silkscreen font-bold text-[10px] px-2.5 py-0.5 border border-black">
-                {projectScoreBadges[activeProjectIndex]}
+                PROJECT 0{activeProjectIndex + 1}
               </span>
               <span className="font-mono-tech text-xs text-[#ff2a85] uppercase tracking-widest font-bold">
                 CATEGORY: {activeProject.category}
@@ -174,7 +168,8 @@ export const ProjectsSection: React.FC = () => {
 
             {activeProject.metrics && activeProject.metrics.length > 0 && (
               <div>
-                <h4 className="font-silkscreen text-xs text-[#ff2a85] uppercase mb-3 font-bold">
+                <h4 className="font-silkscreen text-xs text-[#ff2a85] uppercase mb-3 font-bold flex items-center gap-1.5">
+                  <FolderGit2 className="w-4 h-4" />
                   VERIFIED METRICS:
                 </h4>
                 <div className="grid grid-cols-1 gap-2">
