@@ -5,16 +5,15 @@ import { Trophy, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const AchievementsSection: React.FC = () => {
   return (
-    <section id="achievements" className="py-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
-      {/* Section Header */}
-      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
-        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
-          [ HONORS & MILESTONES ]
-        </div>
-        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
-          ACHIEVEMENTS & MILESTONES
-        </h2>
+    <section id="achievements" className="py-16 px-4 max-w-5xl mx-auto bg-[#180e28] arcade-purple-grid">
+      {/* Stage Header */}
+      <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
+        STAGE 05 — BOSSES DEFEATED
       </div>
+
+      <h2 className="font-silkscreen text-2xl sm:text-4xl font-extrabold text-[#ffffff] uppercase tracking-wider mb-8">
+        BOSSES DEFEATED.
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {milestones.map((m) => (
@@ -50,7 +49,7 @@ export const AchievementsSection: React.FC = () => {
 
             <div className="border-t-2 border-black pt-4">
               <span className="font-silkscreen text-[10px] text-[#ff2a85] block mb-2 flex items-center gap-1 font-bold">
-                <Sparkles className="w-3 h-3" /> MILESTONE HIGHLIGHTS:
+                <Sparkles className="w-3 h-3" /> DEFEATED REWARDS:
               </span>
               <ul className="space-y-1.5">
                 {m.highlights.map((h, i) => (

@@ -23,25 +23,24 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
-      {/* Section Header */}
-      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
-        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
-          [ CONNECT & RECRUIT ]
-        </div>
-        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
-          GET IN TOUCH
-        </h2>
+    <section id="contact" className="py-16 px-4 max-w-5xl mx-auto bg-[#180e28] arcade-purple-grid">
+      {/* Stage Header Matching Screenshot */}
+      <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
+        STAGE 06 — CONTINUE? PRESS START.
       </div>
 
+      <h2 className="font-silkscreen text-2xl sm:text-4xl font-extrabold text-[#ffffff] uppercase tracking-wider mb-8">
+        CONTINUE? PRESS START.
+      </h2>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Left Column: Direct Links */}
+        {/* Left Column: Direct Action Buttons (Matching ▶ EMAIL ME Buttons in Reference) */}
         <div className="space-y-6">
           <div className="arcade-card-dark p-6 sm:p-8 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00]">
-            <h3 className="font-silkscreen text-lg sm:text-xl font-bold text-white mb-2">
+            <h3 className="font-silkscreen text-lg font-bold text-white mb-2">
               RECRUITER & DEVELOPER CONNECTIONS
             </h3>
-            <p className="font-mono-tech text-xs sm:text-sm text-[#a89cb9] mb-6 leading-relaxed">
+            <p className="font-mono-tech text-xs sm:text-sm text-[#cbbad9] mb-6 leading-relaxed">
               Seeking full-time roles, software engineering internships, AI/ML research collaborations, or open-source opportunities.
             </p>
 
@@ -50,14 +49,14 @@ export const ContactSection: React.FC = () => {
               <button
                 onClick={handleCopyEmail}
                 onMouseEnter={() => sound.playHover()}
-                className="w-full arcade-btn arcade-btn-yellow py-3.5 px-4 flex items-center justify-between text-xs"
+                className="w-full arcade-btn arcade-btn-pink py-3.5 px-4 flex items-center justify-between text-xs"
               >
-                <span className="flex items-center gap-2.5 text-[#120a21]">
+                <span className="flex items-center gap-2.5 text-white">
                   <Mail className="w-4 h-4" />
-                  <span>Email Me ({personalInfo.socials.email})</span>
+                  <span>▶ EMAIL ME ({personalInfo.socials.email})</span>
                 </span>
-                <span className="flex items-center gap-1 text-[#120a21] font-bold">
-                  {copiedEmail ? <CheckCircle2 className="w-4 h-4 text-emerald-700" /> : <Copy className="w-3.5 h-3.5" />}
+                <span className="flex items-center gap-1 text-white font-bold">
+                  {copiedEmail ? <CheckCircle2 className="w-4 h-4 text-emerald-300" /> : <Copy className="w-3.5 h-3.5" />}
                   {copiedEmail ? 'COPIED!' : 'COPY'}
                 </span>
               </button>
@@ -68,13 +67,13 @@ export const ContactSection: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={() => sound.playHover()}
-                className="w-full arcade-btn arcade-btn-pink py-3.5 px-4 flex items-center justify-between text-xs"
+                className="w-full arcade-btn arcade-btn-yellow py-3.5 px-4 flex items-center justify-between text-xs"
               >
-                <span className="flex items-center gap-2.5 text-white">
+                <span className="flex items-center gap-2.5 text-[#120a21]">
                   <FileText className="w-4 h-4" />
-                  <span>Download Resume (PDF)</span>
+                  <span>RESUME.PDF</span>
                 </span>
-                <span className="text-white font-bold">DOWNLOAD →</span>
+                <span className="text-[#120a21] font-bold">DOWNLOAD →</span>
               </a>
 
               {/* GitHub */}
@@ -87,9 +86,9 @@ export const ContactSection: React.FC = () => {
               >
                 <span className="flex items-center gap-2.5">
                   <GithubIcon className="w-4 h-4" />
-                  <span>GitHub Profile</span>
+                  <span>GITHUB@KHARSHAVARDHAN-ENG</span>
                 </span>
-                <span className="text-slate-400 font-bold">VISIT →</span>
+                <span className="text-slate-300 font-bold">VISIT →</span>
               </a>
 
               {/* LinkedIn */}
@@ -102,9 +101,9 @@ export const ContactSection: React.FC = () => {
               >
                 <span className="flex items-center gap-2.5">
                   <LinkedinIcon className="w-4 h-4" />
-                  <span>LinkedIn Network</span>
+                  <span>LINKEDIN/IN/K-HARSHAVARDHAN</span>
                 </span>
-                <span className="text-slate-400 font-bold">CONNECT →</span>
+                <span className="text-slate-300 font-bold">CONNECT →</span>
               </a>
             </div>
           </div>
@@ -115,7 +114,7 @@ export const ContactSection: React.FC = () => {
           <div className="arcade-card-cream p-6 sm:p-8 border-3 border-black shadow-[6px_6px_0px_#ff2a85]">
             <h3 className="font-silkscreen text-base sm:text-lg font-bold text-[#120a21] mb-2 uppercase flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#ff2a85]" />
-              SEND DIRECT MESSAGE
+              DIRECT TRANSMISSION FORM
             </h3>
             <p className="font-mono-tech text-xs text-slate-700 mb-6">
               Fill in your details below to leave a message.
@@ -124,7 +123,7 @@ export const ContactSection: React.FC = () => {
             {submitted ? (
               <div className="bg-white border-2 border-black p-6 text-center space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-                <h4 className="font-silkscreen font-bold text-lg text-[#120a21]">MESSAGE TRANSMITTED!</h4>
+                <h4 className="font-silkscreen font-bold text-lg text-[#120a21]">TRANSMISSION RECORDED!</h4>
                 <p className="font-mono-tech text-xs text-slate-800">
                   Thank you for reaching out. I will respond to your message shortly via email.
                 </p>
@@ -185,7 +184,7 @@ export const ContactSection: React.FC = () => {
                   className="w-full arcade-btn arcade-btn-pink py-3 text-xs flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4 text-white" />
-                  <span>Send Message →</span>
+                  <span>Transmit Message →</span>
                 </button>
               </form>
             )}

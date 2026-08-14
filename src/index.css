@@ -2,11 +2,11 @@
 
 @layer base {
   :root {
-    --bg-dark: #0d0818;
-    --bg-void: #090511;
-    --bg-surface: #180f28;
-    --bg-card-cream: #fff5f8;
-    --bg-card-dark: #1e1333;
+    --bg-dark: #180e28;
+    --bg-void: #11081f;
+    --bg-surface: #23153c;
+    --bg-card-cream: #ffffff;
+    --bg-card-dark: #281845;
     
     --accent-pink: #ff2a85;
     --accent-yellow: #ffcc00;
@@ -16,8 +16,8 @@
     --border-pink: #ff2a85;
     --border-yellow: #ffcc00;
     
-    --text-primary: #f8f6fc;
-    --text-muted: #a89cb9;
+    --text-primary: #ffffff;
+    --text-muted: #cbbad9;
     --text-dark: #120a21;
   }
 
@@ -27,12 +27,12 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    selection-background-color: rgba(255, 42, 133, 0.3);
+    selection-background-color: rgba(255, 42, 133, 0.4);
     selection-color: #ffffff;
   }
 }
 
-/* Typography Utility Classes */
+/* Typography Classes */
 .font-arcade {
   font-family: 'Press Start 2P', cursive, monospace;
 }
@@ -49,7 +49,7 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* CRT & Scanline Overlay */
+/* Horizontal CRT Scanline Atmosphere (Matching Reference Screenshot) */
 .crt-overlay {
   pointer-events: none;
   position: fixed;
@@ -59,15 +59,15 @@
   height: 100vh;
   z-index: 9999;
   background: linear-gradient(
-    rgba(18, 10, 26, 0) 50%, 
-    rgba(0, 0, 0, 0.35) 50%
+    rgba(18, 10, 28, 0) 50%, 
+    rgba(0, 0, 0, 0.45) 50%
   ), linear-gradient(
     90deg,
-    rgba(255, 0, 100, 0.02),
-    rgba(0, 255, 100, 0.01),
-    rgba(0, 100, 255, 0.02)
+    rgba(255, 0, 120, 0.03),
+    rgba(0, 255, 120, 0.01),
+    rgba(0, 120, 255, 0.03)
   );
-  background-size: 100% 3px, 6px 100%;
+  background-size: 100% 4px, 6px 100%;
 }
 
 .crt-vignette {
@@ -78,10 +78,10 @@
   width: 100vw;
   height: 100vh;
   z-index: 9998;
-  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 130px rgba(0, 0, 0, 0.85);
 }
 
-/* Sharp Rectangular Arcade Cards & Panels */
+/* Card System */
 .arcade-card-cream {
   background-color: var(--bg-card-cream);
   color: var(--text-dark);
@@ -110,7 +110,7 @@
   box-shadow: 7px 7px 0px #ffcc00;
 }
 
-/* Rectangular Arcade Buttons with Solid Offset Shadows */
+/* Buttons (Matching [▶ PRESS START] Pink Button in Screenshot) */
 .arcade-btn {
   font-family: 'Press Start 2P', cursive, monospace;
   font-size: 11px;
@@ -122,25 +122,25 @@
   transition: all 0.1s ease-out;
   cursor: pointer;
   display: inline-flex;
-  items-center: center;
+  align-items: center;
   justify-content: center;
 }
 
 .arcade-btn-pink {
   background-color: #ff2a85;
   color: #ffffff;
-  border: 3px solid #000000;
-  box-shadow: 4px 4px 0px #ffcc00;
+  border: 3px solid #ffffff;
+  box-shadow: 4px 4px 0px #ff2a85, 4px 4px 0px 3px #000000;
 }
 
 .arcade-btn-pink:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #ffcc00;
+  box-shadow: 6px 6px 0px #ff2a85, 6px 6px 0px 3px #000000;
 }
 
 .arcade-btn-pink:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #ffcc00;
+  box-shadow: 2px 2px 0px #ff2a85, 2px 2px 0px 3px #000000;
 }
 
 .arcade-btn-yellow {
@@ -161,8 +161,8 @@
 }
 
 .arcade-btn-outline {
-  background-color: #1a0f30;
-  color: #f8f6fc;
+  background-color: #23153c;
+  color: #ffffff;
   border: 3px solid #ff2a85;
   box-shadow: 4px 4px 0px #000000;
 }
@@ -179,12 +179,12 @@
   box-shadow: 2px 2px 0px #000000;
 }
 
-/* Low contrast retro grid background */
+/* Background Texture */
 .arcade-purple-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 42, 133, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 42, 133, 0.08) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 42, 133, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 42, 133, 0.05) 1px, transparent 1px);
 }
 
 /* Custom Scrollbar */
@@ -194,7 +194,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0818;
+  background: #180e28;
 }
 
 ::-webkit-scrollbar-thumb {

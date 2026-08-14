@@ -22,16 +22,15 @@ export const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-16 px-4 max-w-6xl mx-auto bg-[#0d0818] arcade-purple-grid">
-      {/* Section Header */}
-      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
-        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
-          [ TECH MATRIX & INVENTORY ]
-        </div>
-        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
-          TECHNICAL SKILLS
-        </h2>
+    <section id="skills" className="py-16 px-4 max-w-6xl mx-auto bg-[#180e28] arcade-purple-grid">
+      {/* Stage Header */}
+      <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
+        STAGE 04 — INVENTORY MATRIX
       </div>
+
+      <h2 className="font-silkscreen text-2xl sm:text-4xl font-extrabold text-[#ffffff] uppercase tracking-wider mb-8">
+        ITEMS COLLECTED.
+      </h2>
 
       {/* Category Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-thin">
@@ -50,8 +49,8 @@ export const SkillsSection: React.FC = () => {
               onMouseEnter={() => sound.playHover()}
               className={`flex-shrink-0 px-4 py-3 border-3 border-black text-xs font-silkscreen font-bold transition-all flex items-center gap-2.5 ${
                 isSelected 
-                  ? 'bg-[#fff5f8] text-[#120a21] shadow-[4px_4px_0px_#ff2a85]' 
-                  : 'bg-[#1a0f30] text-[#f8f6fc] hover:border-[#ff2a85]'
+                  ? 'bg-[#ffffff] text-[#120a21] shadow-[4px_4px_0px_#ff2a85]' 
+                  : 'bg-[#281845] text-[#ffffff] hover:border-[#ff2a85]'
               }`}
             >
               <IconComp className={`w-4 h-4 ${isSelected ? 'text-[#ff2a85]' : 'text-[#ffcc00]'}`} />
@@ -118,7 +117,7 @@ export const SkillsSection: React.FC = () => {
           <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00] sticky top-24">
             <div className="flex items-center justify-between pb-3 border-b-2 border-[#ff2a85] mb-4">
               <span className="font-silkscreen text-xs text-[#ffcc00]">
-                SKILL INSPECTOR
+                INVENTORY INSPECTOR
               </span>
               <span className="w-2 h-2 bg-[#ffcc00] animate-ping"></span>
             </div>
@@ -126,8 +125,8 @@ export const SkillsSection: React.FC = () => {
             {selectedSkill ? (
               <div className="space-y-4">
                 <div>
-                  <span className="font-silkscreen text-[10px] text-[#a89cb9] block mb-1">
-                    SELECTED SKILL:
+                  <span className="font-silkscreen text-[10px] text-[#cbbad9] block mb-1">
+                    ITEM NAME:
                   </span>
                   <h4 className="font-silkscreen text-lg font-bold text-white">
                     {selectedSkill.name}
@@ -141,7 +140,7 @@ export const SkillsSection: React.FC = () => {
 
                 {selectedSkill.highlight && (
                   <div>
-                    <span className="font-silkscreen text-[10px] text-[#a89cb9] block mb-1">
+                    <span className="font-silkscreen text-[10px] text-[#cbbad9] block mb-1">
                       TECHNICAL ATTRIBUTE:
                     </span>
                     <p className="font-mono-tech text-xs text-slate-200 bg-[#120a21] p-3 border-2 border-black leading-relaxed">
@@ -154,7 +153,7 @@ export const SkillsSection: React.FC = () => {
                   <div>
                     <span className="font-silkscreen text-[10px] text-[#ffcc00] block mb-2 flex items-center gap-1.5 font-bold">
                       <FolderGit2 className="w-3.5 h-3.5" />
-                      USED IN PROJECTS:
+                      EQUIPPED IN PROJECTS:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {selectedSkill.projectsUsedIn.map((pName, idx) => (
@@ -174,8 +173,8 @@ export const SkillsSection: React.FC = () => {
             ) : (
               <div className="text-center py-8">
                 <Layers className="w-10 h-10 text-[#ff2a85] mx-auto mb-3 animate-pulse" />
-                <p className="font-mono-tech text-xs text-[#a89cb9]">
-                  Select any skill card on the left to inspect detailed highlights and project usage.
+                <p className="font-mono-tech text-xs text-[#cbbad9]">
+                  Select any item on the left to inspect detailed attributes and equipped projects.
                 </p>
               </div>
             )}
