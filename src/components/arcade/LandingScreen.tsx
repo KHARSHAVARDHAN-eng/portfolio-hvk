@@ -2,14 +2,14 @@ import React, { useEffect, useRef } from 'react';
 import { useArcade } from '../../context/ArcadeContext';
 import { personalInfo } from '../../data/portfolioData';
 import { sound } from '../../utils/sound';
-import { Play, FileText, Terminal, Sparkles } from 'lucide-react';
+import { Play, FileText, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from '../ui/Icons';
 
 export const LandingScreen: React.FC = () => {
   const { setStage, toggleRecruiterPass } = useArcade();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Dynamic pixel starfield / digital grid canvas animation
+  // Pixel starfield background
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -33,38 +33,22 @@ export const LandingScreen: React.FC = () => {
       });
     }
 
-    const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = canvas.offsetWidth;
-      height = canvas.height = canvas.offsetHeight;
-    };
-
-    window.addEventListener('resize', handleResize);
-
     const render = () => {
       ctx.clearRect(0, 0, width, height);
-
-      // Render pixel starfield
       stars.forEach((star) => {
         star.y += star.speed;
         if (star.y > height) {
           star.y = 0;
           star.x = Math.random() * width;
         }
-
         ctx.fillStyle = `rgba(0, 240, 255, ${star.alpha * 0.7})`;
         ctx.fillRect(Math.floor(star.x), Math.floor(star.y), Math.floor(star.size), Math.floor(star.size));
       });
-
       animationId = requestAnimationFrame(render);
     };
 
     render();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationId);
-    };
+    return () => cancelAnimationFrame(animationId);
   }, []);
 
   const handleStart = () => {
@@ -73,42 +57,39 @@ export const LandingScreen: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center pt-16 pb-12 px-4 arcade-grid overflow-hidden">
-      {/* Background Interactive Canvas */}
+    <div className="relative min-h-screen w-full flex items-center justify-center pt-20 pb-12 px-4 arcade-grid overflow-hidden">
+      {/* Background Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-60" />
 
-      {/* Decorative Arcade Corner Flares */}
-      <div className="absolute top-20 left-6 text-[10px] font-silkscreen text-cyan-500/40 hidden sm:block">
-        [SYS_STATUS: ONLINE]<br />[MODE: ARCADE_V2.0]
-      </div>
-      <div className="absolute top-20 right-6 text-[10px] font-silkscreen text-amber-500/40 hidden sm:block text-right">
-        [CREDITS: ∞]<br />[STAGE: 01_READY]
-      </div>
-
-      {/* Central Arcade Cabinet Container */}
       <div className="relative z-10 max-w-4xl w-full mx-auto text-center">
         <div className="arcade-panel p-6 sm:p-12 rounded-xl border-2 border-cyan-500/40 shadow-2xl relative backdrop-blur-md">
           {/* Top Arcade Tag */}
           <div className="inline-flex items-center gap-2 bg-cyan-950/80 border border-cyan-400/40 px-3 py-1 rounded-full text-xs font-silkscreen text-cyan-300 mb-6 animate-pulse">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span>INTERACTIVE CSE PORTFOLIO</span>
+            <span>ARCADE CABINET PORTFOLIO</span>
           </div>
 
-          {/* Student Name Header */}
-          <h1 className="font-chakra text-3xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-wider uppercase mb-3 glow-cyan">
+          {/* Title Header */}
+          <h1 className="font-silkscreen text-3xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-wider uppercase mb-4 glow-cyan">
             K. HARSHAVARDHAN
           </h1>
 
-          {/* Specialization Subtitle */}
-          <p className="font-chakra text-base sm:text-2xl font-bold text-amber-400 tracking-widest uppercase mb-4 glow-amber">
-            Computer Science & Engineering
+          {/* Subtitle Tagline */}
+          <p className="font-chakra text-base sm:text-2xl font-bold text-amber-400 tracking-widest uppercase mb-6 glow-amber">
+            AI/ML Engineer · Software Developer · Open Source
           </p>
 
-          <p className="font-mono-tech text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
-            AI/ML • Software Development • Open Source
-          </p>
+          {/* Replayable Character Open World Section */}
+          <div className="bg-slate-950/90 border border-cyan-500/30 p-4 sm:p-6 rounded-lg max-w-2xl mx-auto mb-8 text-left">
+            <h2 className="font-silkscreen text-xs sm:text-sm text-cyan-300 uppercase mb-2">
+              REPLAYABLE CHARACTER, OPEN-WORLD BUILD.
+            </h2>
+            <p className="font-mono-tech text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Computer Science & Engineering student at Alliance University (Class of 2027). Building production-grade GraphRAG indexing pipelines, real-time computer vision anti-spoofing biometrics, and multi-modal neural analyzers. Most of what I engineer starts as a hard system question I want solved from first principles.
+            </p>
+          </div>
 
-          {/* Primary Action Button */}
+          {/* Primary Action Button - Matching ▶ PRESS START */}
           <div className="mb-10">
             <button
               onClick={handleStart}
@@ -116,22 +97,22 @@ export const LandingScreen: React.FC = () => {
               className="arcade-btn arcade-btn-amber px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-xl flex items-center justify-center gap-3 mx-auto shadow-2xl animate-bounce"
             >
               <Play className="w-6 h-6 fill-black" />
-              <span>PRESS START / ENTER</span>
+              <span>▶ PRESS START</span>
             </button>
             <div className="text-[11px] font-silkscreen text-amber-400/80 mt-3 animate-blink">
-              ▼ CLICK OR PRESS ENTER TO START MISSION ▼
+              ▼ CLICK OR PRESS ENTER TO CHOOSE MISSION STAGE ▼
             </div>
           </div>
 
           {/* Secondary Action Shortcuts */}
-          <div className="pt-6 border-t border-cyan-500/20 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <div className="pt-6 border-t border-cyan-500/20 flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-silkscreen text-xs">
             <button
               onClick={toggleRecruiterPass}
               onMouseEnter={() => sound.playHover()}
-              className="arcade-btn arcade-btn-outline px-4 py-2 text-xs flex items-center gap-2"
+              className="arcade-btn arcade-btn-outline px-4 py-2 flex items-center gap-2"
             >
-              <Terminal className="w-4 h-4 text-amber-400" />
-              <span>RECRUITER FAST PASS</span>
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>RECRUITER PASS</span>
             </button>
 
             <a
@@ -139,10 +120,10 @@ export const LandingScreen: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => sound.playHover()}
-              className="arcade-btn arcade-btn-outline px-4 py-2 text-xs flex items-center gap-2"
+              className="arcade-btn arcade-btn-outline px-4 py-2 flex items-center gap-2"
             >
               <FileText className="w-4 h-4 text-cyan-400" />
-              <span>RESUME (PDF)</span>
+              <span>RESUME.PDF</span>
             </a>
 
             <a
@@ -150,10 +131,10 @@ export const LandingScreen: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => sound.playHover()}
-              className="arcade-btn arcade-btn-outline px-4 py-2 text-xs flex items-center gap-2"
+              className="arcade-btn arcade-btn-outline px-4 py-2 flex items-center gap-2"
             >
               <GithubIcon className="w-4 h-4 text-slate-300" />
-              <span>GITHUB</span>
+              <span>GITHUB@KHARSHAVARDHAN-ENG</span>
             </a>
 
             <a
@@ -161,10 +142,10 @@ export const LandingScreen: React.FC = () => {
               target="_blank"
               rel="noreferrer"
               onMouseEnter={() => sound.playHover()}
-              className="arcade-btn arcade-btn-outline px-4 py-2 text-xs flex items-center gap-2"
+              className="arcade-btn arcade-btn-outline px-4 py-2 flex items-center gap-2"
             >
               <LinkedinIcon className="w-4 h-4 text-cyan-400" />
-              <span>LINKEDIN</span>
+              <span>LINKEDIN/IN/K-HARSHAVARDHAN</span>
             </a>
           </div>
         </div>

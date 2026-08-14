@@ -17,10 +17,10 @@ export const AchievementsStage: React.FC = () => {
       <div className="flex items-center justify-between mb-8 pb-4 border-b border-yellow-500/30">
         <div>
           <div className="inline-block bg-yellow-950/80 border border-yellow-500/40 px-3 py-1 rounded text-xs font-silkscreen text-yellow-300 mb-2">
-            [ STAGE 06: TROPHY ROOM & MILESTONES ]
+            [ STAGE 06: MILESTONES ]
           </div>
-          <h2 className="font-chakra text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-amber">
-            ACHIEVEMENTS UNLOCKED
+          <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-amber">
+            BOSSES DEFEATED.
           </h2>
         </div>
         <button
@@ -33,7 +33,7 @@ export const AchievementsStage: React.FC = () => {
         </button>
       </div>
 
-      {/* Trophy Cards Grid */}
+      {/* Boss Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {milestones.map((m) => (
           <div
@@ -41,11 +41,9 @@ export const AchievementsStage: React.FC = () => {
             onMouseEnter={handleTrophyHover}
             className="arcade-panel arcade-panel-amber p-6 rounded-xl border-2 border-yellow-500/40 flex flex-col justify-between group hover:scale-[1.02] transition-all relative overflow-hidden"
           >
-            {/* Top Shine Flare */}
             <div className="absolute -right-8 -top-8 w-24 h-24 bg-yellow-400/10 rounded-full blur-xl pointer-events-none"></div>
 
             <div>
-              {/* Badge & Icon */}
               <div className="flex items-center justify-between mb-4">
                 <div className="p-3 bg-yellow-500/20 border border-yellow-400/50 rounded-lg text-yellow-400">
                   <Trophy className="w-6 h-6 animate-pulse" />
@@ -55,7 +53,7 @@ export const AchievementsStage: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-chakra text-xl font-bold text-white mb-1 group-hover:text-yellow-300 transition-colors">
+              <h3 className="font-silkscreen text-lg font-bold text-white mb-1 group-hover:text-yellow-300 transition-colors">
                 {m.title}
               </h3>
               <p className="font-mono-tech text-xs text-amber-400 mb-2 font-bold">
@@ -72,7 +70,7 @@ export const AchievementsStage: React.FC = () => {
 
             <div className="border-t border-yellow-500/20 pt-4">
               <span className="font-silkscreen text-[10px] text-yellow-400/90 block mb-2 flex items-center gap-1">
-                <Sparkles className="w-3 h-3" /> UNLOCKED REWARDS:
+                <Sparkles className="w-3 h-3" /> DEFEATED REWARDS:
               </span>
               <ul className="space-y-1.5">
                 {m.highlights.map((h, i) => (

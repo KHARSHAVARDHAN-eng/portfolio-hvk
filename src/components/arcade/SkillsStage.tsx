@@ -31,10 +31,10 @@ export const SkillsStage: React.FC = () => {
       <div className="flex items-center justify-between mb-8 pb-4 border-b border-violet-500/30">
         <div>
           <div className="inline-block bg-violet-950/80 border border-violet-500/40 px-3 py-1 rounded text-xs font-silkscreen text-violet-300 mb-2">
-            [ STAGE 04: TECH MATRIX & SKILL TREE ]
+            [ STAGE 04: INVENTORY SYSTEM ]
           </div>
-          <h2 className="font-chakra text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-violet">
-            SKILLS MATRIX
+          <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-violet">
+            ITEMS COLLECTED.
           </h2>
         </div>
         <button
@@ -62,7 +62,7 @@ export const SkillsStage: React.FC = () => {
                 setSelectedSkill(null);
               }}
               onMouseEnter={() => sound.playHover()}
-              className={`flex-shrink-0 px-4 py-3 rounded-lg border-2 text-xs font-chakra font-bold transition-all flex items-center gap-2.5 ${
+              className={`flex-shrink-0 px-4 py-3 rounded-lg border-2 text-xs font-silkscreen font-bold transition-all flex items-center gap-2.5 ${
                 isSelected 
                   ? 'border-violet-400 bg-violet-950/60 text-white shadow-lg scale-105' 
                   : 'border-slate-800 bg-[#0a0f1d] text-slate-400 hover:border-violet-500/40 hover:text-slate-200'
@@ -77,10 +77,9 @@ export const SkillsStage: React.FC = () => {
 
       {/* Category Grid & Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left Column: Skills Node Grid */}
         <div className="lg:col-span-2 space-y-4">
           <div className="arcade-panel p-6 rounded-xl border-2 border-violet-500/40">
-            <h3 className="font-chakra text-xl font-bold text-violet-300 mb-2 uppercase flex items-center gap-2">
+            <h3 className="font-silkscreen text-base sm:text-lg font-bold text-violet-300 mb-2 uppercase flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-violet-400" />
               {activeCategory.title}
             </h3>
@@ -124,12 +123,12 @@ export const SkillsStage: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Skill Inspector Card */}
+        {/* Inspector Card */}
         <div className="lg:col-span-1">
           <div className="arcade-panel p-6 rounded-xl border-2 border-violet-500/40 sticky top-24">
             <div className="flex items-center justify-between pb-3 border-b border-violet-500/20 mb-4">
               <span className="font-silkscreen text-xs text-violet-400">
-                INSPECTOR HUD
+                INVENTORY INSPECTOR
               </span>
               <span className="w-2 h-2 rounded-full bg-violet-400 animate-ping"></span>
             </div>
@@ -138,14 +137,14 @@ export const SkillsStage: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <span className="font-silkscreen text-[10px] text-slate-500 block mb-1">
-                    SELECTED TECHNOLOGY:
+                    ITEM NAME:
                   </span>
-                  <h4 className="font-chakra text-2xl font-bold text-white glow-violet">
+                  <h4 className="font-silkscreen text-lg font-bold text-white glow-violet">
                     {selectedSkill.name}
                   </h4>
                   {selectedSkill.categoryTag && (
                     <span className="font-mono-tech text-xs text-violet-400">
-                      Category: {selectedSkill.categoryTag}
+                      Tag: {selectedSkill.categoryTag}
                     </span>
                   )}
                 </div>
@@ -153,7 +152,7 @@ export const SkillsStage: React.FC = () => {
                 {selectedSkill.highlight && (
                   <div>
                     <span className="font-silkscreen text-[10px] text-slate-400 block mb-1">
-                      TECHNICAL HIGHLIGHT:
+                      TECHNICAL ATTRIBUTE:
                     </span>
                     <p className="font-mono-tech text-xs text-slate-200 bg-slate-900/90 p-3 rounded border border-slate-800 leading-relaxed">
                       {selectedSkill.highlight}
@@ -165,7 +164,7 @@ export const SkillsStage: React.FC = () => {
                   <div>
                     <span className="font-silkscreen text-[10px] text-amber-400 block mb-2 flex items-center gap-1.5">
                       <FolderGit2 className="w-3.5 h-3.5" />
-                      APPLIED IN MISSIONS:
+                      EQUIPPED IN MISSIONS:
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {selectedSkill.projectsUsedIn.map((pName, idx) => (
@@ -188,7 +187,7 @@ export const SkillsStage: React.FC = () => {
               <div className="text-center py-8">
                 <Layers className="w-10 h-10 text-slate-600 mx-auto mb-3 animate-pulse" />
                 <p className="font-mono-tech text-xs text-slate-400">
-                  Hover or click any technology node on the left to inspect detailed highlights and project usage.
+                  Select any item to view technical attributes and equipped mission builds.
                 </p>
               </div>
             )}

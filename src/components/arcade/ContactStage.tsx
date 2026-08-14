@@ -30,10 +30,10 @@ export const ContactStage: React.FC = () => {
       <div className="flex items-center justify-between mb-8 pb-4 border-b border-pink-500/30">
         <div>
           <div className="inline-block bg-pink-950/80 border border-pink-500/40 px-3 py-1 rounded text-xs font-silkscreen text-pink-300 mb-2">
-            [ STAGE 07: GAME CLEAR & CONTACT ]
+            [ STAGE 07: GAME OVER / HIGH SCORE ]
           </div>
-          <h2 className="font-chakra text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-magenta">
-            ENTER HIGH SCORE / CONNECT
+          <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-magenta">
+            CONTINUE? PRESS START.
           </h2>
         </div>
         <button
@@ -47,30 +47,30 @@ export const ContactStage: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Left Column: Direct Recruiter Actions */}
+        {/* Left Column: Arcade Action Buttons */}
         <div className="space-y-6">
           <div className="arcade-panel p-6 sm:p-8 rounded-xl border-2 border-pink-500/40">
-            <h3 className="font-chakra text-2xl font-bold text-white mb-2 glow-magenta">
-              RECRUITER & DEVELOPER CONNECTIONS
+            <h3 className="font-silkscreen text-xl sm:text-2xl font-bold text-white mb-2 glow-magenta">
+              HIGH SCORE TRANSMISSION
             </h3>
             <p className="font-mono-tech text-xs sm:text-sm text-slate-300 mb-6 leading-relaxed">
-              Seeking full-time roles, software engineering internships, AI/ML research collaborations, or open-source projects. Reach out directly via email or social networks.
+              Seeking full-time roles, software engineering internships, AI/ML research collaborations, or open-source opportunities.
             </p>
 
-            {/* Quick Links Grid */}
-            <div className="space-y-3">
+            {/* Quick Links matching [▶ EMAIL ME] style */}
+            <div className="space-y-3 font-silkscreen text-xs">
               {/* Copy Email */}
               <button
                 onClick={handleCopyEmail}
                 onMouseEnter={() => sound.playHover()}
-                className="w-full arcade-btn arcade-btn-outline py-3 px-4 flex items-center justify-between text-xs"
+                className="w-full arcade-btn arcade-btn-amber py-3.5 px-4 flex items-center justify-between text-xs"
               >
-                <span className="flex items-center gap-2.5">
-                  <Mail className="w-4 h-4 text-pink-400" />
-                  <span className="font-mono-tech text-slate-200">{personalInfo.socials.email}</span>
+                <span className="flex items-center gap-2.5 text-black">
+                  <Mail className="w-4 h-4" />
+                  <span>▶ EMAIL ME ({personalInfo.socials.email})</span>
                 </span>
-                <span className="flex items-center gap-1 text-pink-400 font-silkscreen text-[10px]">
-                  {copiedEmail ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                <span className="flex items-center gap-1 text-black font-bold">
+                  {copiedEmail ? <CheckCircle2 className="w-4 h-4" /> : <Copy className="w-3.5 h-3.5" />}
                   {copiedEmail ? 'COPIED!' : 'COPY'}
                 </span>
               </button>
@@ -81,13 +81,13 @@ export const ContactStage: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={() => sound.playHover()}
-                className="w-full arcade-btn arcade-btn-amber py-3 px-4 flex items-center justify-between text-xs"
+                className="w-full arcade-btn arcade-btn-outline py-3.5 px-4 flex items-center justify-between text-xs"
               >
                 <span className="flex items-center gap-2.5">
-                  <FileText className="w-4 h-4 text-black" />
-                  <span>DOWNLOAD RESUME (PDF)</span>
+                  <FileText className="w-4 h-4 text-cyan-400" />
+                  <span>RESUME.PDF</span>
                 </span>
-                <span className="font-silkscreen text-[10px] text-black">DOWNLOAD →</span>
+                <span className="text-cyan-400 font-bold">DOWNLOAD →</span>
               </a>
 
               {/* GitHub */}
@@ -96,13 +96,13 @@ export const ContactStage: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={() => sound.playHover()}
-                className="w-full arcade-btn arcade-btn-outline py-3 px-4 flex items-center justify-between text-xs"
+                className="w-full arcade-btn arcade-btn-outline py-3.5 px-4 flex items-center justify-between text-xs"
               >
                 <span className="flex items-center gap-2.5">
                   <GithubIcon className="w-4 h-4 text-slate-300" />
-                  <span>GITHUB PROFILE (@KHARSHAVARDHAN-eng)</span>
+                  <span>GITHUB@KHARSHAVARDHAN-ENG</span>
                 </span>
-                <span className="font-silkscreen text-[10px] text-slate-400">VISIT →</span>
+                <span className="text-slate-400 font-bold">VISIT →</span>
               </a>
 
               {/* LinkedIn */}
@@ -111,35 +111,35 @@ export const ContactStage: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={() => sound.playHover()}
-                className="w-full arcade-btn arcade-btn-outline py-3 px-4 flex items-center justify-between text-xs"
+                className="w-full arcade-btn arcade-btn-outline py-3.5 px-4 flex items-center justify-between text-xs"
               >
                 <span className="flex items-center gap-2.5">
                   <LinkedinIcon className="w-4 h-4 text-cyan-400" />
-                  <span>LINKEDIN NETWORK</span>
+                  <span>LINKEDIN/IN/K-HARSHAVARDHAN</span>
                 </span>
-                <span className="font-silkscreen text-[10px] text-cyan-400">CONNECT →</span>
+                <span className="text-cyan-400 font-bold">CONNECT →</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Contact Message Box */}
+        {/* Right Column: Contact Message Form */}
         <div>
           <div className="arcade-panel p-6 sm:p-8 rounded-xl border-2 border-slate-800">
-            <h3 className="font-chakra text-xl font-bold text-white mb-2 uppercase flex items-center gap-2">
+            <h3 className="font-silkscreen text-base sm:text-lg font-bold text-white mb-2 uppercase flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-pink-400" />
-              SEND DIRECT MESSAGE
+              DIRECT TRANSMISSION FORM
             </h3>
             <p className="font-mono-tech text-xs text-slate-400 mb-6">
-              Fill in your details below to leave a message.
+              Send a direct message into the arcade log.
             </p>
 
             {submitted ? (
               <div className="bg-emerald-950/40 border border-emerald-500/40 p-6 rounded-lg text-center space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-emerald-400 mx-auto animate-bounce" />
-                <h4 className="font-chakra font-bold text-xl text-white">MESSAGE RECORDED!</h4>
+                <h4 className="font-silkscreen font-bold text-lg text-white">TRANSMISSION RECORDED!</h4>
                 <p className="font-mono-tech text-xs text-slate-300">
-                  Thank you for reaching out. I will respond to your message shortly via email.
+                  Thank you. I will respond to your message shortly via email.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -159,7 +159,7 @@ export const ContactStage: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Alex (Tech Lead @ Company)"
+                    placeholder="e.g. Tech Recruiter @ Company"
                     className="w-full bg-slate-900 border border-slate-700 focus:border-pink-500 p-2.5 rounded text-xs font-mono-tech text-white outline-none"
                   />
                 </div>
@@ -173,21 +173,21 @@ export const ContactStage: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. alex@company.com"
+                    placeholder="e.g. recruiter@company.com"
                     className="w-full bg-slate-900 border border-slate-700 focus:border-pink-500 p-2.5 rounded text-xs font-mono-tech text-white outline-none"
                   />
                 </div>
 
                 <div>
                   <label className="font-silkscreen text-[10px] text-slate-400 block mb-1">
-                    MESSAGE CONTENT:
+                    MESSAGE:
                   </label>
                   <textarea
                     required
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Describe potential role, project, or opportunity..."
+                    placeholder="Describe potential role, internship, or project..."
                     className="w-full bg-slate-900 border border-slate-700 focus:border-pink-500 p-2.5 rounded text-xs font-mono-tech text-white outline-none resize-none"
                   ></textarea>
                 </div>
@@ -195,7 +195,7 @@ export const ContactStage: React.FC = () => {
                 <button
                   type="submit"
                   onMouseEnter={() => sound.playHover()}
-                  className="w-full arcade-btn arcade-btn-amber py-3 text-xs flex items-center justify-center gap-2"
+                  className="w-full arcade-btn arcade-btn-amber py-3 text-xs flex items-center justify-center gap-2 font-silkscreen"
                 >
                   <Send className="w-4 h-4 text-black" />
                   <span>TRANSMIT MESSAGE →</span>
