@@ -2,32 +2,42 @@
 
 @layer base {
   :root {
-    --bg-dark: #140824;
-    --bg-void: #0f051c;
-    --bg-surface: #201138;
-    --bg-card-cream: #ffffff;
-    --bg-card-dark: #261442;
+    --ds-background: #140824;
+    --ds-surface: #fff5f8;
+    --ds-surface-hover: #fef0f5;
+    --ds-card-bg: #ffffff;
+    --ds-card-dark: #261442;
     
-    --accent-pink: #ff2a85;
-    --accent-yellow: #ffcc00;
-    --accent-purple: #9d4edd;
+    --ds-accent-pink: #ff2a85;
+    --ds-accent-yellow: #ffcc00;
+    --ds-accent-purple: #9d4edd;
     
-    --border-dark: #000000;
-    --border-pink: #ff2a85;
-    --border-yellow: #ffcc00;
+    --ds-text-primary: #ffffff;
+    --ds-text-dark: #120a21;
+    --ds-text-muted: #cbbad9;
     
-    --text-primary: #ffffff;
-    --text-muted: #cbbad9;
-    --text-dark: #120a21;
+    --ds-radius-small: 0px;
+    --ds-radius-medium: 0px;
+    --ds-radius-large: 0px;
+    --ds-radius-xl: 0px;
+    
+    --ds-border-width: 3px;
+    --ds-border-color: #000000;
+    --ds-border-pink: #ff2a85;
+    --ds-border-yellow: #ffcc00;
+    
+    --ds-shadow-pink: 5px 5px 0px #ff2a85;
+    --ds-shadow-yellow: 5px 5px 0px #ffcc00;
+    --ds-shadow-dark: 4px 4px 0px #000000;
   }
 
   body {
-    background-color: #140824;
+    background-color: var(--ds-background);
     background-image: 
       linear-gradient(to right, rgba(255, 42, 133, 0.22) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 42, 133, 0.22) 1px, transparent 1px);
     background-size: 20px 20px;
-    color: var(--text-primary);
+    color: var(--ds-text-primary);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
@@ -36,7 +46,7 @@
   }
 }
 
-/* Typography Classes */
+/* Typography Tokens */
 .font-arcade {
   font-family: 'Press Start 2P', cursive, monospace;
 }
@@ -53,7 +63,7 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Global CRT Horizontal Scanline Atmosphere */
+/* CRT Scanline Overlay */
 .crt-overlay {
   pointer-events: none;
   position: fixed;
@@ -94,13 +104,13 @@
   background-size: 20px 20px;
 }
 
-/* Card System */
+/* Reference Card System (--ds-card-bg, --ds-card-border, --ds-card-shadow) */
 .arcade-card-cream {
-  background-color: var(--bg-card-cream);
-  color: var(--text-dark);
+  background-color: var(--ds-surface);
+  color: var(--ds-text-dark);
   border: 3px solid #000000;
   border-radius: 0px;
-  box-shadow: 5px 5px 0px #ff2a85;
+  box-shadow: var(--ds-shadow-pink);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -110,11 +120,11 @@
 }
 
 .arcade-card-dark {
-  background-color: var(--bg-card-dark);
-  color: var(--text-primary);
+  background-color: var(--ds-card-dark);
+  color: var(--ds-text-primary);
   border: 3px solid #ff2a85;
   border-radius: 0px;
-  box-shadow: 5px 5px 0px #ffcc00;
+  box-shadow: var(--ds-shadow-yellow);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -123,7 +133,7 @@
   box-shadow: 7px 7px 0px #ffcc00;
 }
 
-/* Buttons */
+/* Reference Button System (--ds-button-primary-text, --ds-button-primary-border, --ds-button-primary-shadow) */
 .arcade-btn {
   font-family: 'Press Start 2P', cursive, monospace;
   font-size: 11px;
@@ -140,7 +150,7 @@
 }
 
 .arcade-btn-pink {
-  background-color: #ff2a85;
+  background-color: var(--ds-accent-pink);
   color: #ffffff;
   border: 3px solid #ffffff;
   box-shadow: 4px 4px 0px #ff2a85, 4px 4px 0px 3px #000000;
@@ -157,7 +167,7 @@
 }
 
 .arcade-btn-yellow {
-  background-color: #ffcc00;
+  background-color: var(--ds-accent-yellow);
   color: #120a21;
   border: 3px solid #000000;
   box-shadow: 4px 4px 0px #ff2a85;
