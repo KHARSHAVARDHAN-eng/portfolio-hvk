@@ -15,7 +15,7 @@ export const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto bg-[#140824] arcade-purple-grid">
+    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto bg-[#140824] arcade-purple-bg">
       {/* Section Header */}
       <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
         <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">

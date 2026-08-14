@@ -32,11 +32,7 @@
   }
 
   body {
-    background-color: var(--ds-background);
-    background-image: 
-      linear-gradient(to right, rgba(255, 42, 133, 0.22) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 42, 133, 0.22) 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-color: #140824;
     color: var(--ds-text-primary);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
@@ -63,7 +59,7 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* CRT Scanline Overlay */
+/* Subtle CRT Horizontal Scanlines Overlay (NO Geometric Grid Lines) */
 .crt-overlay {
   pointer-events: none;
   position: fixed;
@@ -72,16 +68,13 @@
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  background: linear-gradient(
-    rgba(20, 8, 36, 0) 50%, 
-    rgba(0, 0, 0, 0.45) 50%
-  ), linear-gradient(
-    90deg,
-    rgba(255, 0, 120, 0.03),
-    rgba(0, 255, 120, 0.01),
-    rgba(0, 120, 255, 0.03)
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.22),
+    rgba(0, 0, 0, 0.22) 1px,
+    transparent 1px,
+    transparent 3px
   );
-  background-size: 100% 4px, 6px 100%;
 }
 
 .crt-vignette {
@@ -92,16 +85,12 @@
   width: 100vw;
   height: 100vh;
   z-index: 9998;
-  box-shadow: inset 0 0 130px rgba(0, 0, 0, 0.85);
+  box-shadow: inset 0 0 110px rgba(0, 0, 0, 0.75);
 }
 
-/* Reusable Grid Class */
-.arcade-purple-grid {
+/* Deep Purple Solid Background Class (Zero Grid Lines) */
+.arcade-purple-bg {
   background-color: #140824;
-  background-image: 
-    linear-gradient(to right, rgba(255, 42, 133, 0.22) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 42, 133, 0.22) 1px, transparent 1px);
-  background-size: 20px 20px;
 }
 
 /* Reference Card System (--ds-card-bg, --ds-card-border, --ds-card-shadow) */

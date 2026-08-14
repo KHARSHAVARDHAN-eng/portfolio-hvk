@@ -3,7 +3,7 @@ import { personalInfo } from '../../data/portfolioData';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-16 px-4 max-w-5xl mx-auto bg-[#140824] arcade-purple-grid">
+    <section id="about" className="py-16 px-4 max-w-5xl mx-auto bg-[#140824] arcade-purple-bg">
       {/* Stage Header Matching STAGE 02 — PLAYER STATS in Screenshot */}
       <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
         STAGE 02 — PLAYER STATS

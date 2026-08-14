@@ -8,7 +8,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[85vh] pt-28 pb-16 flex flex-col justify-center bg-[#140824] arcade-purple-grid overflow-hidden"
+      className="relative min-h-[85vh] pt-28 pb-16 flex flex-col justify-center bg-[#140824] arcade-purple-bg overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 w-full text-left">
         {/* Level & Role Tag */}
