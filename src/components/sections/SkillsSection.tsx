@@ -1,121 +1,186 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { BrainCircuit, Network, Code2, Server, Layout, Sparkles, CheckCircle2 } from 'lucide-react';
-import { SectionHeader } from '../ui/SectionHeader';
-import { GlowingCard } from '../ui/GlowingCard';
 import { skillCategories } from '../../data/portfolioData';
+import { sound } from '../../utils/sound';
+import { Layers, BrainCircuit, Code2, Layout, Sparkles, FolderGit2 } from 'lucide-react';
+import type { Skill } from '../../types';
 
 export const SkillsSection: React.FC = () => {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState<number>(0);
+  const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
 
-  const getCategoryIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'BrainCircuit': return <BrainCircuit className="w-5 h-5 text-cyan-400" />;
-      case 'Network': return <Network className="w-5 h-5 text-purple-400" />;
-      case 'Code2': return <Code2 className="w-5 h-5 text-blue-400" />;
-      case 'Server': return <Server className="w-5 h-5 text-emerald-400" />;
-      case 'Layout': return <Layout className="w-5 h-5 text-amber-400" />;
-      default: return <BrainCircuit className="w-5 h-5 text-cyan-400" />;
-    }
+  const categoryIcons: Record<string, React.ElementType> = {
+    BrainCircuit,
+    Code2,
+    Layout
   };
 
-  const activeCategory = skillCategories[activeCategoryIndex];
+  const activeCategory = skillCategories[activeCategoryIndex] || skillCategories[0];
+
+  const handleSelectSkill = (sk: Skill) => {
+    sound.playHover();
+    setSelectedSkill(sk);
+  };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <SectionHeader
-          number="03"
-          title="Technical Capabilities & Skill Stack"
-          subtitle="A comprehensive overview of AI/ML frameworks, GraphRAG architectures, backend servers, and modern web development."
-          badge="Skill Architecture"
-        />
+    <section id="skills" className="py-16 px-4 max-w-6xl mx-auto bg-[#0d0818] arcade-purple-grid">
+      {/* Section Header */}
+      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
+        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
+          [ TECH MATRIX & INVENTORY ]
+        </div>
+        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
+          TECHNICAL SKILLS
+        </h2>
+      </div>
 
-        {/* Category Navigation Tabs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-8">
-          {skillCategories.map((cat, idx) => {
-            const isActive = activeCategoryIndex === idx;
-            return (
-              <button
-                key={idx}
-                onClick={() => setActiveCategoryIndex(idx)}
-                className={`flex items-center gap-3 p-3.5 rounded-xl text-left transition-all duration-200 border ${
-                  isActive
-                    ? 'bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-300 border-cyan-400/80 shadow-[0_0_20px_rgba(0,242,254,0.2)] font-semibold'
-                    : 'bg-slate-900/60 text-slate-400 border-slate-800 hover:border-slate-700 hover:text-slate-200'
-                }`}
-              >
-                <span className={`p-2 rounded-lg ${isActive ? 'bg-cyan-500 text-black' : 'bg-slate-800'}`}>
-                  {getCategoryIcon(cat.iconName)}
-                </span>
-                <div>
-                  <div className="text-xs font-mono-tech opacity-75">0{idx + 1}</div>
-                  <div className="text-xs font-bold truncate">{cat.title.split(' ')[0]}</div>
-                </div>
-              </button>
-            );
-          })}
+      {/* Category Tabs */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-thin">
+        {skillCategories.map((cat, idx) => {
+          const isSelected = activeCategoryIndex === idx;
+          const IconComp = categoryIcons[cat.iconName] || Layers;
+
+          return (
+            <button
+              key={cat.title}
+              onClick={() => {
+                sound.playSelect();
+                setActiveCategoryIndex(idx);
+                setSelectedSkill(null);
+              }}
+              onMouseEnter={() => sound.playHover()}
+              className={`flex-shrink-0 px-4 py-3 border-3 border-black text-xs font-silkscreen font-bold transition-all flex items-center gap-2.5 ${
+                isSelected 
+                  ? 'bg-[#fff5f8] text-[#120a21] shadow-[4px_4px_0px_#ff2a85]' 
+                  : 'bg-[#1a0f30] text-[#f8f6fc] hover:border-[#ff2a85]'
+              }`}
+            >
+              <IconComp className={`w-4 h-4 ${isSelected ? 'text-[#ff2a85]' : 'text-[#ffcc00]'}`} />
+              <span>{cat.title}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Skills Grid & Inspector */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 space-y-4">
+          <div className="arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85]">
+            <h3 className="font-silkscreen text-base sm:text-lg font-bold text-[#120a21] mb-2 uppercase flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[#ff2a85]" />
+              {activeCategory.title}
+            </h3>
+            <p className="font-mono-tech text-xs text-slate-700 mb-6">
+              {activeCategory.description}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {activeCategory.skills.map((sk, idx) => {
+                const isSelected = selectedSkill?.name === sk.name;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => handleSelectSkill(sk)}
+                    onMouseEnter={() => handleSelectSkill(sk)}
+                    className={`p-4 border-2 border-black text-left transition-all ${
+                      isSelected 
+                        ? 'bg-[#ff2a85] text-white shadow-[4px_4px_0px_#ffcc00]' 
+                        : 'bg-white text-[#120a21] hover:border-[#ff2a85]'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="font-silkscreen font-bold text-xs">
+                        {sk.name}
+                      </span>
+                      {sk.categoryTag && (
+                        <span className={`font-silkscreen text-[9px] px-1.5 py-0.5 border border-black ${
+                          isSelected ? 'bg-[#ffcc00] text-black font-bold' : 'bg-[#120a21] text-white'
+                        }`}>
+                          {sk.categoryTag}
+                        </span>
+                      )}
+                    </div>
+                    {sk.highlight && (
+                      <p className={`font-mono-tech text-xs line-clamp-2 ${
+                        isSelected ? 'text-slate-100' : 'text-slate-700'
+                      }`}>
+                        {sk.highlight}
+                      </p>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
-        {/* Selected Category Skill Details */}
-        <motion.div
-          key={activeCategoryIndex}
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <GlowingCard glowColor="rgba(0, 242, 254, 0.15)">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-800">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  {getCategoryIcon(activeCategory.iconName)}
-                  <h3 className="text-2xl font-bold text-slate-100">{activeCategory.title}</h3>
-                </div>
-                <p className="text-sm text-slate-400">{activeCategory.description}</p>
-              </div>
-
-              <span className="px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/80 text-cyan-300 text-xs font-mono-tech w-fit">
-                {activeCategory.skills.length} Core Technologies
+        {/* Skill Inspector */}
+        <div className="lg:col-span-1">
+          <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00] sticky top-24">
+            <div className="flex items-center justify-between pb-3 border-b-2 border-[#ff2a85] mb-4">
+              <span className="font-silkscreen text-xs text-[#ffcc00]">
+                SKILL INSPECTOR
               </span>
+              <span className="w-2 h-2 bg-[#ffcc00] animate-ping"></span>
             </div>
 
-            {/* Skills Progress List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {activeCategory.skills.map((skill, sIdx) => (
-                <div key={sIdx} className="p-4 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-cyan-500/30 transition-colors">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-bold text-slate-100 text-sm sm:text-base flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-cyan-400" />
-                      <span>{skill.name}</span>
+            {selectedSkill ? (
+              <div className="space-y-4">
+                <div>
+                  <span className="font-silkscreen text-[10px] text-[#a89cb9] block mb-1">
+                    SELECTED SKILL:
+                  </span>
+                  <h4 className="font-silkscreen text-lg font-bold text-white">
+                    {selectedSkill.name}
+                  </h4>
+                  {selectedSkill.categoryTag && (
+                    <span className="font-mono-tech text-xs text-[#ff2a85] font-bold">
+                      Tag: {selectedSkill.categoryTag}
                     </span>
-                    <span className="font-mono-tech text-xs text-cyan-400 font-semibold">{skill.level}%</span>
-                  </div>
-
-                  {/* Animated Progress Bar */}
-                  <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden mb-3">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 0.8, delay: sIdx * 0.1 }}
-                      className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
-                    />
-                  </div>
-
-                  {skill.highlight && (
-                    <p className="text-xs text-slate-400 font-mono-tech flex items-center gap-1.5">
-                      <Sparkles className="w-3 h-3 text-cyan-400 flex-shrink-0" />
-                      <span>{skill.highlight}</span>
-                    </p>
                   )}
                 </div>
-              ))}
-            </div>
 
-          </GlowingCard>
-        </motion.div>
+                {selectedSkill.highlight && (
+                  <div>
+                    <span className="font-silkscreen text-[10px] text-[#a89cb9] block mb-1">
+                      TECHNICAL ATTRIBUTE:
+                    </span>
+                    <p className="font-mono-tech text-xs text-slate-200 bg-[#120a21] p-3 border-2 border-black leading-relaxed">
+                      {selectedSkill.highlight}
+                    </p>
+                  </div>
+                )}
 
+                {selectedSkill.projectsUsedIn && selectedSkill.projectsUsedIn.length > 0 && (
+                  <div>
+                    <span className="font-silkscreen text-[10px] text-[#ffcc00] block mb-2 flex items-center gap-1.5 font-bold">
+                      <FolderGit2 className="w-3.5 h-3.5" />
+                      USED IN PROJECTS:
+                    </span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {selectedSkill.projectsUsedIn.map((pName, idx) => (
+                        <a
+                          key={idx}
+                          href="#projects"
+                          onClick={() => sound.playSelect()}
+                          className="bg-[#ff2a85] border border-black px-2.5 py-1 text-xs font-silkscreen text-white hover:bg-[#ffcc00] hover:text-black"
+                        >
+                          {pName} →
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="text-center py-8">
+                <Layers className="w-10 h-10 text-[#ff2a85] mx-auto mb-3 animate-pulse" />
+                <p className="font-mono-tech text-xs text-[#a89cb9]">
+                  Select any skill card on the left to inspect detailed highlights and project usage.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

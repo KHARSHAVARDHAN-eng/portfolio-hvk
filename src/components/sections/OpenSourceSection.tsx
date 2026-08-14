@@ -1,137 +1,106 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { GitPullRequest, Star, ExternalLink, Code } from 'lucide-react';
-import { SectionHeader } from '../ui/SectionHeader';
-import { GlowingCard } from '../ui/GlowingCard';
-import { Badge } from '../ui/Badge';
-import { openSourceContributions, personalInfo } from '../../data/portfolioData';
-import { GithubIcon } from '../ui/Icons';
+import { openSourceContributions } from '../../data/portfolioData';
+import { sound } from '../../utils/sound';
+import { GitBranch, Star, ExternalLink, Terminal, ShieldCheck } from 'lucide-react';
 
 export const OpenSourceSection: React.FC = () => {
   return (
-    <section id="opensource" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <SectionHeader
-          number="04"
-          title="Open Source & Community Work"
-          subtitle="Building open-source AI retrieval tools, anti-spoofing utilities, and contributing to community machine learning frameworks."
-          badge="Public Contributions"
-        />
-
-        {/* GitHub Stats Highlights Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
-          <div className="p-6 rounded-2xl glass-card border border-slate-800 flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-cyan-500/20 text-cyan-400">
-              <Star className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="text-3xl font-extrabold font-mono-tech text-slate-100">250+</div>
-              <div className="text-xs text-slate-400 mt-1">Total GitHub Stars Earned</div>
-            </div>
-          </div>
-
-          <div className="p-6 rounded-2xl glass-card border border-slate-800 flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-purple-500/20 text-purple-400">
-              <GitPullRequest className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="text-3xl font-extrabold font-mono-tech text-slate-100">30+</div>
-              <div className="text-xs text-slate-400 mt-1">Merged Pull Requests</div>
-            </div>
-          </div>
-
-          <div className="p-6 rounded-2xl glass-card border border-slate-800 flex items-center gap-4">
-            <div className="p-3 rounded-xl bg-emerald-500/20 text-emerald-400">
-              <Code className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="text-3xl font-extrabold font-mono-tech text-slate-100">100%</div>
-              <div className="text-xs text-slate-400 mt-1">Public Code Transparency</div>
-            </div>
-          </div>
+    <section id="open-source" className="py-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
+      {/* Section Header */}
+      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
+        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
+          [ COMMUNITY & LIBRARIES ]
         </div>
+        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
+          OPEN SOURCE CONTRIBUTIONS
+        </h2>
+      </div>
 
-        {/* Open Source Projects & Contributions Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {openSourceContributions.map((item, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.1 }}
-            >
-              <GlowingCard glowColor="rgba(0, 242, 254, 0.15)" className="h-full flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <Badge variant={item.type === 'Maintainer' ? 'cyan' : 'violet'}>
-                      {item.type}
-                    </Badge>
-                    
-                    {item.stars && (
-                      <span className="flex items-center gap-1 font-mono-tech text-xs text-yellow-400 bg-yellow-950/40 px-2 py-0.5 rounded border border-yellow-800/40">
-                        <Star className="w-3 h-3 fill-yellow-400" />
-                        <span>{item.stars}</span>
-                      </span>
-                    )}
-                  </div>
+      <p className="font-mono-tech text-xs sm:text-sm text-[#a89cb9] mb-8 max-w-3xl leading-relaxed">
+        Building transparent, open-source AI tooling, retrieval benchmarking modules, and computer vision utilities.
+      </p>
 
-                  <h3 className="text-xl font-bold text-slate-100">{item.title}</h3>
-                  <p className="font-mono-tech text-xs text-cyan-300 mt-1">{item.repo}</p>
-                  
-                  <p className="text-sm text-slate-300 mt-3 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
-                  <div className="flex flex-wrap gap-1">
-                    {item.tech.map((t, tIdx) => (
-                      <span key={tIdx} className="text-[10px] font-mono-tech text-slate-400 bg-slate-900 px-2 py-0.5 rounded">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-slate-900 text-slate-400 hover:text-cyan-300 hover:bg-cyan-500/20 transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              </GlowingCard>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* GitHub Direct Link Banner */}
-        <div className="mt-12 p-8 rounded-2xl glass-card border border-cyan-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="p-3.5 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
-              <GithubIcon className="w-8 h-8" />
-            </div>
-            <div>
-              <h4 className="text-xl font-bold text-slate-100">Explore full code repositories on GitHub</h4>
-              <p className="text-sm text-slate-400 mt-0.5">Inspect commits, benchmarks, and active AI open-source code.</p>
-            </div>
-          </div>
-
-          <a
-            href={personalInfo.socials.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-semibold text-sm hover:shadow-[0_0_25px_rgba(0,242,254,0.4)] transition-all flex-shrink-0"
+      {/* Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        {openSourceContributions.map((contrib, idx) => (
+          <div
+            key={idx}
+            className="arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85] flex flex-col justify-between group"
           >
-            <span>Visit @{personalInfo.handle}</span>
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="bg-[#ff2a85] text-white font-silkscreen font-bold text-[10px] px-2 py-0.5 border border-black">
+                  PROJECT 0{idx + 1}
+                </span>
+                {contrib.stars && (
+                  <span className="flex items-center gap-1 font-silkscreen text-xs text-[#120a21] font-bold bg-[#ffcc00] px-2 py-0.5 border border-black">
+                    <Star className="w-3.5 h-3.5 fill-[#120a21]" />
+                    {contrib.stars}
+                  </span>
+                )}
+              </div>
 
+              <h3 className="font-silkscreen text-base font-bold text-[#120a21] mb-1">
+                {contrib.title}
+              </h3>
+              <p className="font-mono-tech text-xs text-[#ff2a85] mb-3 font-bold">
+                {contrib.repo}
+              </p>
+
+              <div className="inline-flex items-center gap-1.5 bg-[#120a21] text-white px-2.5 py-1 text-[10px] font-silkscreen mb-4 border border-black">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#ffcc00]" />
+                <span>ROLE: {contrib.role}</span>
+              </div>
+
+              <p className="font-mono-tech text-xs text-slate-800 mb-5 leading-relaxed">
+                {contrib.description}
+              </p>
+            </div>
+
+            <div>
+              <div className="flex flex-wrap gap-1.5 mb-5">
+                {contrib.tech.map((t, i) => (
+                  <span key={i} className="bg-white text-black border border-black px-2 py-0.5 text-[10px] font-silkscreen">
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <a
+                href={contrib.link}
+                target="_blank"
+                rel="noreferrer"
+                onMouseEnter={() => sound.playHover()}
+                className="arcade-btn arcade-btn-pink w-full py-2 text-xs flex items-center justify-center gap-2"
+              >
+                <GitBranch className="w-4 h-4" />
+                <span>Inspect GitHub</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* GitHub Callout */}
+      <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00] flex items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center gap-3">
+          <Terminal className="w-6 h-6 text-[#ffcc00]" />
+          <div>
+            <div className="font-silkscreen font-bold text-white text-sm">WANT TO EXPLORE ALL REPOSITORIES & COMMITS?</div>
+            <div className="font-mono-tech text-xs text-[#a89cb9]">View complete contribution history on GitHub</div>
+          </div>
+        </div>
+        <a
+          href="https://github.com/KHARSHAVARDHAN-eng"
+          target="_blank"
+          rel="noreferrer"
+          onMouseEnter={() => sound.playHover()}
+          className="arcade-btn arcade-btn-yellow px-5 py-2.5 text-xs flex items-center gap-2"
+        >
+          <span>Open GitHub Profile</span>
+          <ExternalLink className="w-3.5 h-3.5 text-[#120a21]" />
+        </a>
       </div>
     </section>
   );

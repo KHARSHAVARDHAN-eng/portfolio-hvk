@@ -1,95 +1,117 @@
 import React from 'react';
-import { GraduationCap, BrainCircuit, Terminal, Sparkles } from 'lucide-react';
-import { SectionHeader } from '../ui/SectionHeader';
-import { GlowingCard } from '../ui/GlowingCard';
 import { personalInfo } from '../../data/portfolioData';
+import { sound } from '../../utils/sound';
+import { User, ShieldCheck, GraduationCap, MapPin, Sparkles } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <SectionHeader
-          number="02"
-          title="About & Engineering Background"
-          subtitle="Passionate about bridging modern AI research with high-performance production software engineering."
-          badge="Profile & Vision"
-        />
+    <section id="about" className="py-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
+      {/* Section Header */}
+      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
+        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
+          [ DEVELOPER BACKGROUND ]
+        </div>
+        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
+          ABOUT ME
+        </h2>
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Bio & Focus Area */}
-          <div className="lg:col-span-7 space-y-6">
-            <GlowingCard glowColor="rgba(0, 242, 254, 0.15)">
-              <div className="flex items-center gap-3 mb-4">
-                <BrainCircuit className="w-6 h-6 text-cyan-400" />
-                <h3 className="text-xl font-bold text-slate-100">Engineering Philosophy</h3>
-              </div>
-              <p className="text-base text-slate-300 leading-relaxed">
-                {personalInfo.bio}
-              </p>
-              
-              <div className="mt-6 pt-6 border-t border-slate-800">
-                <span className="font-mono-tech text-xs text-cyan-400 uppercase tracking-widest block mb-3">
-                  Core Engineering Interests:
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {personalInfo.interests.map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-sm text-slate-300">
-                      <Sparkles className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </GlowingCard>
-
-            {/* Terminal Style Quick Specs */}
-            <div className="rounded-2xl glass-card p-6 border border-slate-800 font-mono-tech text-xs text-slate-300">
-              <div className="flex items-center gap-2 text-cyan-400 mb-4 pb-2 border-b border-slate-800">
-                <Terminal className="w-4 h-4" />
-                <span>DEVELOPER_SPECS.json</span>
-              </div>
-              <div className="space-y-2 text-slate-400">
-                <div><span className="text-cyan-400">"degree"</span>: <span className="text-slate-200">"{personalInfo.education.degree}"</span></div>
-                <div><span className="text-cyan-400">"specialization"</span>: <span className="text-slate-200">"Artificial Intelligence & Machine Learning"</span></div>
-                <div><span className="text-cyan-400">"core_focus"</span>: <span className="text-slate-200">["GraphRAG", "Anti-Spoofing CV", "FastAPI"]</span></div>
-                <div><span className="text-cyan-400">"status"</span>: <span className="text-emerald-400">"{personalInfo.status}"</span></div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left Column: Student Spec Sheet */}
+        <div className="lg:col-span-1 arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85] flex flex-col justify-between">
+          <div>
+            <div className="w-24 h-24 mx-auto mb-4 bg-[#1e1333] border-3 border-black flex items-center justify-center relative overflow-hidden">
+              <User className="w-12 h-12 text-[#ffcc00]" />
+              <div className="absolute bottom-0 inset-x-0 bg-[#ff2a85] text-white font-silkscreen text-[9px] text-center py-0.5 font-bold">
+                CSE 2027
               </div>
             </div>
 
-          </div>
+            <h3 className="font-silkscreen text-xl font-bold text-center text-[#120a21] mb-1">
+              {personalInfo.name}
+            </h3>
+            <p className="font-silkscreen text-xs text-center text-[#ff2a85] font-bold mb-4">
+              @{personalInfo.handle}
+            </p>
 
-          {/* Education & Timeline Card */}
-          <div className="lg:col-span-5 space-y-6">
-            <GlowingCard glowColor="rgba(121, 40, 202, 0.15)">
-              <div className="flex items-center gap-3 mb-4">
-                <GraduationCap className="w-6 h-6 text-purple-400" />
-                <h3 className="text-xl font-bold text-slate-100">Academic Foundation</h3>
+            <div className="space-y-3 font-mono-tech text-xs border-t-2 border-black pt-4">
+              <div className="flex justify-between items-center bg-white p-2 border-2 border-black">
+                <span className="text-slate-600 flex items-center gap-1.5 font-bold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#ff2a85]" />
+                  ROLE:
+                </span>
+                <span className="text-[#120a21] font-bold">CSE Student</span>
               </div>
 
-              <div className="space-y-4">
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono-tech text-xs text-purple-300 bg-purple-950/80 px-2.5 py-1 rounded border border-purple-800/60">
-                      {personalInfo.education.period}
-                    </span>
-                    <span className="text-xs font-mono-tech text-slate-400">{personalInfo.education.grade}</span>
-                  </div>
-                  <h4 className="text-lg font-bold text-slate-100 mt-2">{personalInfo.education.degree}</h4>
-                  <p className="text-sm font-mono-tech text-cyan-300">{personalInfo.education.institution}</p>
-                </div>
-
-                <p className="text-xs text-slate-300 leading-relaxed pt-3 border-t border-slate-800">
-                  {personalInfo.education.details}
-                </p>
+              <div className="flex justify-between items-center bg-white p-2 border-2 border-black">
+                <span className="text-slate-600 flex items-center gap-1.5 font-bold">
+                  <GraduationCap className="w-3.5 h-3.5 text-[#ff2a85]" />
+                  COLLEGE:
+                </span>
+                <span className="text-[#120a21] font-bold">Alliance Univ</span>
               </div>
-            </GlowingCard>
+
+              <div className="flex justify-between items-center bg-white p-2 border-2 border-black">
+                <span className="text-slate-600 flex items-center gap-1.5 font-bold">
+                  <MapPin className="w-3.5 h-3.5 text-[#ff2a85]" />
+                  LOCATION:
+                </span>
+                <span className="text-[#120a21] font-bold">{personalInfo.location}</span>
+              </div>
+            </div>
           </div>
 
+          <div className="mt-6 pt-4 border-t-2 border-black text-center">
+            <span className="font-silkscreen text-[10px] text-[#ff2a85] font-bold">
+              AUTHENTIC STUDENT PROFILE
+            </span>
+          </div>
         </div>
 
+        {/* Right Column: Biography & Focus */}
+        <div className="lg:col-span-2 space-y-6">
+          <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00]">
+            <h3 className="font-silkscreen text-sm font-bold text-[#ffcc00] mb-3 uppercase flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[#ff2a85]" />
+              DEVELOPER BIOGRAPHY
+            </h3>
+            <p className="font-mono-tech text-xs sm:text-sm text-[#f8f6fc] leading-relaxed">
+              {personalInfo.bio}
+            </p>
+          </div>
+
+          <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00]">
+            <h3 className="font-silkscreen text-sm font-bold text-[#ffcc00] mb-4 uppercase">
+              CORE TECHNICAL FOCUS AREAS
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {personalInfo.interests.map((interest, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#120a21] border-2 border-[#ff2a85] p-3 text-xs font-mono-tech text-[#f8f6fc] flex items-start gap-2"
+                >
+                  <span className="text-[#ffcc00] font-bold font-silkscreen">0{idx + 1}.</span>
+                  <span>{interest}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85] flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <div className="font-silkscreen text-[10px] text-[#ff2a85] font-bold">ACADEMIC PROGRAM</div>
+              <div className="font-silkscreen text-base font-bold text-[#120a21]">{personalInfo.education.degree}</div>
+              <div className="font-mono-tech text-xs text-slate-700 font-bold">{personalInfo.education.institution} ({personalInfo.education.period})</div>
+            </div>
+            <a
+              href="#education"
+              onMouseEnter={() => sound.playHover()}
+              className="arcade-btn arcade-btn-pink px-4 py-2 text-xs"
+            >
+              View Education →
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,74 +1,68 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
-import { SectionHeader } from '../ui/SectionHeader';
-import { GlowingCard } from '../ui/GlowingCard';
-import { Badge } from '../ui/Badge';
 import { milestones } from '../../data/portfolioData';
+import { sound } from '../../utils/sound';
+import { Trophy, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const AchievementsSection: React.FC = () => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <SectionHeader
-          number="05"
-          title="Experience & Key Milestones"
-          subtitle="A timeline of open-source research, hackathon victories, and computer science engineering achievements."
-          badge="Milestones Timeline"
-        />
-
-        {/* Timeline Container */}
-        <div className="relative pl-6 md:pl-10 border-l border-slate-800 space-y-12">
-          {milestones.map((item, idx) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="relative"
-            >
-              {/* Timeline Glowing Node Marker */}
-              <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_15px_#00f2fe] border-2 border-slate-950" />
-
-              <GlowingCard glowColor="rgba(0, 242, 254, 0.12)">
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-                  <div className="flex items-center gap-2">
-                    <Badge variant={item.type === 'hackathon' ? 'violet' : 'cyan'}>
-                      {item.badgeText}
-                    </Badge>
-                    <span className="font-mono-tech text-xs text-slate-400">{item.location}</span>
-                  </div>
-                  <span className="font-mono-tech text-xs text-cyan-300 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-800/60">
-                    {item.period}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-bold text-slate-100">{item.title}</h3>
-                <p className="font-mono-tech text-sm text-cyan-400 mt-1">{item.organization}</p>
-
-                <p className="text-sm text-slate-300 mt-4 leading-relaxed">
-                  {item.description}
-                </p>
-
-                <div className="mt-6 pt-4 border-t border-slate-800/80">
-                  <span className="text-xs font-mono-tech text-slate-400 block mb-2">Key Highlights:</span>
-                  <div className="space-y-1.5">
-                    {item.highlights.map((h, hIdx) => (
-                      <div key={hIdx} className="flex items-center gap-2 text-xs text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
-                        <span>{h}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </GlowingCard>
-            </motion.div>
-          ))}
+    <section id="achievements" className="py-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
+      {/* Section Header */}
+      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
+        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
+          [ HONORS & MILESTONES ]
         </div>
+        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
+          ACHIEVEMENTS & MILESTONES
+        </h2>
+      </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {milestones.map((m) => (
+          <div
+            key={m.id}
+            onMouseEnter={() => sound.playTrophy()}
+            className="arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85] flex flex-col justify-between group"
+          >
+            <div>
+              <div className="flex items-center justify-between mb-4">
+                <div className="p-2.5 bg-[#ffcc00] border-2 border-black text-[#120a21]">
+                  <Trophy className="w-5 h-5" />
+                </div>
+                <span className="bg-[#ff2a85] text-white font-silkscreen font-bold text-[10px] px-2.5 py-0.5 border border-black">
+                  {m.badgeText}
+                </span>
+              </div>
+
+              <h3 className="font-silkscreen text-base font-bold text-[#120a21] mb-1">
+                {m.title}
+              </h3>
+              <p className="font-mono-tech text-xs text-[#ff2a85] mb-2 font-bold">
+                {m.organization}
+              </p>
+              <p className="font-silkscreen text-[10px] text-slate-600 mb-4">
+                {m.period} • {m.location}
+              </p>
+
+              <p className="font-mono-tech text-xs text-slate-800 mb-5 leading-relaxed">
+                {m.description}
+              </p>
+            </div>
+
+            <div className="border-t-2 border-black pt-4">
+              <span className="font-silkscreen text-[10px] text-[#ff2a85] block mb-2 flex items-center gap-1 font-bold">
+                <Sparkles className="w-3 h-3" /> MILESTONE HIGHLIGHTS:
+              </span>
+              <ul className="space-y-1.5">
+                {m.highlights.map((h, i) => (
+                  <li key={i} className="font-mono-tech text-[11px] text-slate-800 flex items-start gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#ff2a85] flex-shrink-0 mt-0.5" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
