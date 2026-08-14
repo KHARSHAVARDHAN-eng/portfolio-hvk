@@ -23,14 +23,15 @@ export const SkillsSection: React.FC = () => {
 
   return (
     <section id="skills" className="py-16 px-4 max-w-6xl mx-auto bg-[#140824] arcade-purple-grid">
-      {/* Stage Header */}
-      <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
-        STAGE 04 — INVENTORY MATRIX
+      {/* Section Header */}
+      <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
+        <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
+          [ TECH MATRIX & INVENTORY ]
+        </div>
+        <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#ffffff] uppercase tracking-wider">
+          TECHNICAL SKILLS
+        </h2>
       </div>
-
-      <h2 className="font-silkscreen text-2xl sm:text-4xl font-extrabold text-[#ffffff] uppercase tracking-wider mb-8">
-        ITEMS COLLECTED.
-      </h2>
 
       {/* Category Tabs */}
       <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-thin">
@@ -49,8 +50,8 @@ export const SkillsSection: React.FC = () => {
               onMouseEnter={() => sound.playHover()}
               className={`flex-shrink-0 px-4 py-3 border-3 border-black text-xs font-silkscreen font-bold transition-all flex items-center gap-2.5 ${
                 isSelected 
-                  ? 'bg-[#ffffff] text-[#120a21] shadow-[4px_4px_0px_#ff2a85]' 
-                  : 'bg-[#281845] text-[#ffffff] hover:border-[#ff2a85]'
+                  ? 'bg-[#fff5f8] text-[#120a21] shadow-[4px_4px_0px_#ff2a85]' 
+                  : 'bg-[#261442] text-[#ffffff] hover:border-[#ff2a85]'
               }`}
             >
               <IconComp className={`w-4 h-4 ${isSelected ? 'text-[#ff2a85]' : 'text-[#ffcc00]'}`} />
