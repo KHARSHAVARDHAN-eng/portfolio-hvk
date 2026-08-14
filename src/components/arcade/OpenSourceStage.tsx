@@ -8,14 +8,14 @@ export const OpenSourceStage: React.FC = () => {
   const { setStage } = useArcade();
 
   return (
-    <div className="min-h-screen w-full pt-20 pb-16 px-4 max-w-5xl mx-auto">
+    <div className="min-h-screen w-full pt-20 pb-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8 pb-4 border-b border-emerald-500/30">
+      <div className="flex items-center justify-between mb-8 pb-4 border-b-3 border-[#ff2a85]">
         <div>
-          <div className="inline-block bg-emerald-950/80 border border-emerald-500/40 px-3 py-1 rounded text-xs font-silkscreen text-emerald-300 mb-2">
-            [ STAGE 03: QUEST LOG & CONTRIBUTIONS ]
+          <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
+            [ STAGE 04: QUEST LOG & CONTRIBUTIONS ]
           </div>
-          <h2 className="font-chakra text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-emerald">
+          <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
             OPEN SOURCE CONTRIBUTIONS
           </h2>
         </div>
@@ -29,68 +29,65 @@ export const OpenSourceStage: React.FC = () => {
         </button>
       </div>
 
-      <p className="font-mono-tech text-xs sm:text-sm text-slate-300 mb-8 max-w-3xl leading-relaxed">
+      <p className="font-mono-tech text-xs sm:text-sm text-[#a89cb9] mb-8 max-w-3xl leading-relaxed">
         Building transparent, open-source AI tooling, retrieval benchmarking modules, and computer vision utilities.
       </p>
 
-      {/* Quest Logs Grid */}
+      {/* Quest Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         {openSourceContributions.map((contrib, idx) => (
           <div
             key={idx}
-            className="arcade-panel arcade-panel-emerald p-6 rounded-xl border-2 border-emerald-500/40 flex flex-col justify-between group hover:border-emerald-400 transition-all"
+            className="arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85] flex flex-col justify-between group"
           >
             <div>
-              {/* Header Badge */}
               <div className="flex items-center justify-between mb-3">
-                <span className="bg-emerald-400 text-black font-silkscreen font-bold text-[10px] px-2 py-0.5 rounded">
+                <span className="bg-[#ff2a85] text-white font-silkscreen font-bold text-[10px] px-2 py-0.5 border border-black">
                   LOG 0{idx + 1}
                 </span>
                 {contrib.stars && (
-                  <span className="flex items-center gap-1 font-mono-tech text-xs text-amber-400 font-bold bg-amber-950/40 px-2 py-0.5 rounded border border-amber-500/30">
-                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                  <span className="flex items-center gap-1 font-silkscreen text-xs text-[#120a21] font-bold bg-[#ffcc00] px-2 py-0.5 border border-black">
+                    <Star className="w-3.5 h-3.5 fill-[#120a21]" />
                     {contrib.stars}
                   </span>
                 )}
               </div>
 
-              <h3 className="font-chakra text-xl font-bold text-white mb-1 group-hover:text-emerald-300 transition-colors">
+              <h3 className="font-silkscreen text-base font-bold text-[#120a21] mb-1">
                 {contrib.title}
               </h3>
-              <p className="font-mono-tech text-xs text-emerald-400/90 mb-3 font-semibold">
+              <p className="font-mono-tech text-xs text-[#ff2a85] mb-3 font-bold">
                 {contrib.repo}
               </p>
 
-              <div className="inline-flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded text-[11px] font-mono-tech text-slate-300 mb-4 border border-slate-800">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="inline-flex items-center gap-1.5 bg-[#120a21] text-white px-2.5 py-1 text-[10px] font-silkscreen mb-4 border border-black">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#ffcc00]" />
                 <span>ROLE: {contrib.role}</span>
               </div>
 
-              <p className="font-mono-tech text-xs text-slate-300 mb-5 leading-relaxed">
+              <p className="font-mono-tech text-xs text-slate-800 mb-5 leading-relaxed">
                 {contrib.description}
               </p>
             </div>
 
             <div>
-              {/* Technologies */}
               <div className="flex flex-wrap gap-1.5 mb-5">
                 {contrib.tech.map((t, i) => (
-                  <span key={i} className="bg-slate-900 border border-slate-700 px-2 py-0.5 rounded text-[10px] font-mono-tech text-slate-300">
+                  <span key={i} className="bg-white text-black border border-black px-2 py-0.5 text-[10px] font-silkscreen">
                     {t}
                   </span>
                 ))}
               </div>
 
-              {/* GitHub Link Button */}
               <a
                 href={contrib.link}
                 target="_blank"
                 rel="noreferrer"
                 onMouseEnter={() => sound.playHover()}
-                className="arcade-btn arcade-btn-outline w-full py-2 text-xs flex items-center justify-center gap-2 border-emerald-500/40 text-emerald-400 hover:bg-emerald-950/40"
+                className="arcade-btn arcade-btn-pink w-full py-2 text-xs flex items-center justify-center gap-2"
               >
                 <GitBranch className="w-4 h-4" />
-                <span>INSPECT ON GITHUB</span>
+                <span>INSPECT GITHUB</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -99,12 +96,12 @@ export const OpenSourceStage: React.FC = () => {
       </div>
 
       {/* GitHub Callout Banner */}
-      <div className="arcade-panel p-6 rounded-lg border-2 border-slate-800 flex items-center justify-between flex-wrap gap-4">
+      <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00] flex items-center justify-between flex-wrap gap-4">
         <div className="flex items-center gap-3">
-          <Terminal className="w-6 h-6 text-emerald-400" />
+          <Terminal className="w-6 h-6 text-[#ffcc00]" />
           <div>
-            <div className="font-chakra font-bold text-white text-base">WANT TO EXPLORE ALL REPOSITORIES & COMMITS?</div>
-            <div className="font-mono-tech text-xs text-slate-400">View complete contribution history on GitHub</div>
+            <div className="font-silkscreen font-bold text-white text-sm">WANT TO EXPLORE ALL REPOSITORIES & COMMITS?</div>
+            <div className="font-mono-tech text-xs text-[#a89cb9]">View complete contribution history on GitHub</div>
           </div>
         </div>
         <a
@@ -112,10 +109,10 @@ export const OpenSourceStage: React.FC = () => {
           target="_blank"
           rel="noreferrer"
           onMouseEnter={() => sound.playHover()}
-          className="arcade-btn arcade-btn-amber px-5 py-2.5 text-xs flex items-center gap-2"
+          className="arcade-btn arcade-btn-yellow px-5 py-2.5 text-xs flex items-center gap-2"
         >
           <span>OPEN GITHUB PROFILE</span>
-          <ExternalLink className="w-3.5 h-3.5 text-black" />
+          <ExternalLink className="w-3.5 h-3.5 text-[#120a21]" />
         </a>
       </div>
     </div>

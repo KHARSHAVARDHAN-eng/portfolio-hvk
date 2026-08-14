@@ -2,41 +2,37 @@
 
 @layer base {
   :root {
-    --bg-dark: #07090e;
-    --bg-void: #030408;
-    --bg-card: #0d121f;
-    --bg-card-hover: #141b2d;
-    --bg-arcade: #090e1a;
+    --bg-dark: #0d0818;
+    --bg-void: #090511;
+    --bg-surface: #180f28;
+    --bg-card-cream: #fff5f8;
+    --bg-card-dark: #1e1333;
     
-    --accent-yellow: #ffb703;
-    --accent-cyan: #00f0ff;
-    --accent-amber: #fb8500;
-    --accent-emerald: #00ff66;
-    --accent-magenta: #ff007f;
-    --accent-violet: #a855f7;
+    --accent-pink: #ff2a85;
+    --accent-yellow: #ffcc00;
+    --accent-purple: #9d4edd;
     
-    --border-subtle: rgba(255, 255, 255, 0.1);
-    --border-cyan: rgba(0, 240, 255, 0.4);
-    --border-amber: rgba(255, 183, 3, 0.4);
-    --border-emerald: rgba(0, 255, 102, 0.4);
+    --border-dark: #000000;
+    --border-pink: #ff2a85;
+    --border-yellow: #ffcc00;
     
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --text-dim: #64748b;
+    --text-primary: #f8f6fc;
+    --text-muted: #a89cb9;
+    --text-dark: #120a21;
   }
 
   body {
     background-color: var(--bg-dark);
-    color: var(--text-main);
+    color: var(--text-primary);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    selection-background-color: rgba(0, 240, 255, 0.3);
+    selection-background-color: rgba(255, 42, 133, 0.3);
     selection-color: #ffffff;
   }
 }
 
-/* Custom Arcade Fonts */
+/* Typography Utility Classes */
 .font-arcade {
   font-family: 'Press Start 2P', cursive, monospace;
 }
@@ -53,7 +49,7 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* CRT & Scanline Effects */
+/* CRT & Scanline Overlay */
 .crt-overlay {
   pointer-events: none;
   position: fixed;
@@ -63,13 +59,13 @@
   height: 100vh;
   z-index: 9999;
   background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%, 
-    rgba(0, 0, 0, 0.25) 50%
+    rgba(18, 10, 26, 0) 50%, 
+    rgba(0, 0, 0, 0.35) 50%
   ), linear-gradient(
     90deg,
-    rgba(255, 0, 0, 0.03),
-    rgba(0, 255, 0, 0.01),
-    rgba(0, 0, 255, 0.03)
+    rgba(255, 0, 100, 0.02),
+    rgba(0, 255, 100, 0.01),
+    rgba(0, 100, 255, 0.02)
   );
   background-size: 100% 3px, 6px 100%;
 }
@@ -82,126 +78,113 @@
   width: 100vw;
   height: 100vh;
   z-index: 9998;
-  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.8);
 }
 
-/* Arcade Panels & Borders */
-.arcade-panel {
-  background: linear-gradient(180deg, #0f1629 0%, #080c17 100%);
-  border: 2px solid rgba(0, 240, 255, 0.25);
-  box-shadow: 
-    inset 0 0 15px rgba(0, 240, 255, 0.05),
-    0 0 15px rgba(0, 0, 0, 0.5);
-  position: relative;
+/* Sharp Rectangular Arcade Cards & Panels */
+.arcade-card-cream {
+  background-color: var(--bg-card-cream);
+  color: var(--text-dark);
+  border: 3px solid #000000;
+  border-radius: 0px;
+  box-shadow: 5px 5px 0px #ff2a85;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.arcade-panel-amber {
-  background: linear-gradient(180deg, #181409 0%, #0d0a04 100%);
-  border: 2px solid rgba(255, 183, 3, 0.35);
-  box-shadow: 
-    inset 0 0 15px rgba(255, 183, 3, 0.05),
-    0 0 15px rgba(0, 0, 0, 0.5);
+.arcade-card-cream:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #ff2a85;
 }
 
-.arcade-panel-emerald {
-  background: linear-gradient(180deg, #091a13 0%, #040d09 100%);
-  border: 2px solid rgba(0, 255, 102, 0.35);
-  box-shadow: 
-    inset 0 0 15px rgba(0, 255, 102, 0.05),
-    0 0 15px rgba(0, 0, 0, 0.5);
+.arcade-card-dark {
+  background-color: var(--bg-card-dark);
+  color: var(--text-primary);
+  border: 3px solid #ff2a85;
+  border-radius: 0px;
+  box-shadow: 5px 5px 0px #ffcc00;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.arcade-bevel {
-  box-shadow: 
-    inset 2px 2px 0px rgba(255, 255, 255, 0.15),
-    inset -2px -2px 0px rgba(0, 0, 0, 0.6);
+.arcade-card-dark:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px #ffcc00;
 }
 
-/* Tactical Arcade Buttons */
+/* Rectangular Arcade Buttons with Solid Offset Shadows */
 .arcade-btn {
-  font-family: 'Chakra Petch', sans-serif;
-  font-weight: 700;
+  font-family: 'Press Start 2P', cursive, monospace;
+  font-size: 11px;
+  line-height: 1.4;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   position: relative;
-  transition: all 0.15s ease-out;
-  border-radius: 2px;
+  border-radius: 0px;
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
 }
 
-.arcade-btn-primary {
-  background: linear-gradient(180deg, #00f0ff 0%, #0088cc 100%);
-  color: #030712;
-  box-shadow: 0 4px 0 #005588, 0 0 15px rgba(0, 240, 255, 0.4);
+.arcade-btn-pink {
+  background-color: #ff2a85;
+  color: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px #ffcc00;
 }
 
-.arcade-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0 #005588, 0 0 25px rgba(0, 240, 255, 0.6);
+.arcade-btn-pink:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #ffcc00;
 }
 
-.arcade-btn-primary:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #005588, 0 0 10px rgba(0, 240, 255, 0.3);
+.arcade-btn-pink:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #ffcc00;
 }
 
-.arcade-btn-amber {
-  background: linear-gradient(180deg, #ffb703 0%, #fb8500 100%);
-  color: #030712;
-  box-shadow: 0 4px 0 #b35900, 0 0 15px rgba(255, 183, 3, 0.4);
+.arcade-btn-yellow {
+  background-color: #ffcc00;
+  color: #120a21;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px #ff2a85;
 }
 
-.arcade-btn-amber:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0 #b35900, 0 0 25px rgba(255, 183, 3, 0.6);
+.arcade-btn-yellow:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #ff2a85;
 }
 
-.arcade-btn-amber:active {
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #b35900, 0 0 10px rgba(255, 183, 3, 0.3);
+.arcade-btn-yellow:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #ff2a85;
 }
 
 .arcade-btn-outline {
-  background: rgba(13, 18, 31, 0.8);
-  border: 1px solid rgba(0, 240, 255, 0.4);
-  color: #00f0ff;
-  box-shadow: 0 4px 0 rgba(0, 100, 150, 0.5);
+  background-color: #1a0f30;
+  color: #f8f6fc;
+  border: 3px solid #ff2a85;
+  box-shadow: 4px 4px 0px #000000;
 }
 
 .arcade-btn-outline:hover {
-  background: rgba(0, 240, 255, 0.15);
-  border-color: #00f0ff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 0 rgba(0, 100, 150, 0.5), 0 0 15px rgba(0, 240, 255, 0.3);
+  background-color: #ff2a85;
+  color: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000000;
 }
 
-/* Background Grids & Animations */
-.arcade-grid {
+.arcade-btn-outline:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Low contrast retro grid background */
+.arcade-purple-grid {
   background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
-}
-
-.arcade-dots {
-  background-image: radial-gradient(rgba(0, 240, 255, 0.15) 1px, transparent 0);
-  background-size: 24px 24px;
-}
-
-/* Glow Utilities */
-.glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7), 0 0 20px rgba(0, 240, 255, 0.3);
-}
-
-.glow-amber {
-  text-shadow: 0 0 10px rgba(255, 183, 3, 0.7), 0 0 20px rgba(255, 183, 3, 0.3);
-}
-
-.glow-emerald {
-  text-shadow: 0 0 10px rgba(0, 255, 102, 0.7), 0 0 20px rgba(0, 255, 102, 0.3);
-}
-
-.glow-magenta {
-  text-shadow: 0 0 10px rgba(255, 0, 127, 0.7), 0 0 20px rgba(255, 0, 127, 0.3);
+    linear-gradient(to right, rgba(255, 42, 133, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 42, 133, 0.08) 1px, transparent 1px);
 }
 
 /* Custom Scrollbar */
@@ -211,17 +194,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #05070e;
+  background: #0d0818;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 2px;
-  border: 1px solid rgba(0, 240, 255, 0.2);
+  background: #ff2a85;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f0ff;
+  background: #ffcc00;
 }
 
 /* Animations */
@@ -232,22 +214,4 @@
 
 .animate-blink {
   animation: blink 1.2s infinite steps(1);
-}
-
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(1000%); }
-}
-
-.animate-scan {
-  animation: scanline 8s linear infinite;
-}
-
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.6; filter: brightness(1); }
-  50% { opacity: 1; filter: brightness(1.3); }
-}
-
-.animate-pulse-glow {
-  animation: pulseGlow 2.5s ease-in-out infinite;
 }

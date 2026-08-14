@@ -8,14 +8,14 @@ export const AboutStage: React.FC = () => {
   const { setStage } = useArcade();
 
   return (
-    <div className="min-h-screen w-full pt-20 pb-16 px-4 max-w-5xl mx-auto">
+    <div className="min-h-screen w-full pt-20 pb-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
       {/* Stage Header */}
-      <div className="flex items-center justify-between mb-8 pb-4 border-b border-cyan-500/30">
+      <div className="flex items-center justify-between mb-8 pb-4 border-b-3 border-[#ff2a85]">
         <div>
-          <div className="inline-block bg-cyan-950/80 border border-cyan-500/40 px-3 py-1 rounded text-xs font-silkscreen text-cyan-300 mb-2">
+          <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">
             [ STAGE 01: PLAYER PROFILE ]
           </div>
-          <h2 className="font-chakra text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-wider glow-cyan">
+          <h2 className="font-silkscreen text-3xl sm:text-4xl font-extrabold text-[#f8f6fc] uppercase tracking-wider">
             ABOUT THE DEVELOPER
           </h2>
         </div>
@@ -29,110 +29,104 @@ export const AboutStage: React.FC = () => {
         </button>
       </div>
 
-      {/* Main Spec Card Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left Column: Player Card Spec Sheet */}
-        <div className="lg:col-span-1 arcade-panel p-6 rounded-lg border-2 border-cyan-500/40 flex flex-col justify-between">
+        {/* Left Column: Player Spec Sheet */}
+        <div className="lg:col-span-1 arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85] flex flex-col justify-between">
           <div>
-            {/* Avatar Placeholder / Arcade Emblem */}
-            <div className="w-24 h-24 mx-auto mb-4 bg-cyan-950/60 border-2 border-cyan-400 rounded-lg flex items-center justify-center relative overflow-hidden shadow-lg">
-              <User className="w-12 h-12 text-cyan-300" />
-              <div className="absolute bottom-0 inset-x-0 bg-cyan-500 text-black font-silkscreen text-[9px] text-center py-0.5 font-bold">
+            <div className="w-24 h-24 mx-auto mb-4 bg-[#1e1333] border-3 border-black flex items-center justify-center relative overflow-hidden">
+              <User className="w-12 h-12 text-[#ffcc00]" />
+              <div className="absolute bottom-0 inset-x-0 bg-[#ff2a85] text-white font-silkscreen text-[9px] text-center py-0.5 font-bold">
                 CSE 2027
               </div>
             </div>
 
-            <h3 className="font-chakra text-2xl font-bold text-center text-white mb-1 glow-cyan">
+            <h3 className="font-silkscreen text-xl font-bold text-center text-[#120a21] mb-1">
               {personalInfo.name}
             </h3>
-            <p className="font-silkscreen text-[11px] text-center text-amber-400 mb-4">
+            <p className="font-silkscreen text-xs text-center text-[#ff2a85] font-bold mb-4">
               @{personalInfo.handle}
             </p>
 
-            {/* Spec Attributes List */}
-            <div className="space-y-3 font-mono-tech text-xs border-t border-cyan-500/20 pt-4">
-              <div className="flex justify-between items-center bg-slate-900/60 p-2 rounded border border-slate-800">
-                <span className="text-slate-400 flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="space-y-3 font-mono-tech text-xs border-t-2 border-black pt-4">
+              <div className="flex justify-between items-center bg-white p-2 border-2 border-black">
+                <span className="text-slate-600 flex items-center gap-1.5 font-bold">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#ff2a85]" />
                   ROLE:
                 </span>
-                <span className="text-cyan-300 font-bold">CSE Student</span>
+                <span className="text-[#120a21] font-bold">CSE Student</span>
               </div>
 
-              <div className="flex justify-between items-center bg-slate-900/60 p-2 rounded border border-slate-800">
-                <span className="text-slate-400 flex items-center gap-1.5">
-                  <GraduationCap className="w-3.5 h-3.5 text-amber-400" />
+              <div className="flex justify-between items-center bg-white p-2 border-2 border-black">
+                <span className="text-slate-600 flex items-center gap-1.5 font-bold">
+                  <GraduationCap className="w-3.5 h-3.5 text-[#ff2a85]" />
                   COLLEGE:
                 </span>
-                <span className="text-amber-300 font-bold">Alliance Univ</span>
+                <span className="text-[#120a21] font-bold">Alliance Univ</span>
               </div>
 
-              <div className="flex justify-between items-center bg-slate-900/60 p-2 rounded border border-slate-800">
-                <span className="text-slate-400 flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-emerald-400" />
+              <div className="flex justify-between items-center bg-white p-2 border-2 border-black">
+                <span className="text-slate-600 flex items-center gap-1.5 font-bold">
+                  <MapPin className="w-3.5 h-3.5 text-[#ff2a85]" />
                   BASE:
                 </span>
-                <span className="text-emerald-300 font-bold">{personalInfo.location}</span>
+                <span className="text-[#120a21] font-bold">{personalInfo.location}</span>
               </div>
 
-              <div className="flex justify-between items-center bg-slate-900/60 p-2 rounded border border-slate-800">
-                <span className="text-slate-400">STATUS:</span>
-                <span className="text-emerald-400 font-bold text-[10px] animate-pulse">AVAILABLE</span>
+              <div className="flex justify-between items-center bg-white p-2 border-2 border-black">
+                <span className="text-slate-600 font-bold">STATUS:</span>
+                <span className="text-emerald-600 font-bold text-[10px] animate-pulse">AVAILABLE</span>
               </div>
             </div>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-cyan-500/20 text-center">
-            <span className="font-silkscreen text-[10px] text-cyan-400">
-              AUTHENTIC STUDENT PROFILE • NO INFLATED TITLES
+          <div className="mt-6 pt-4 border-t-2 border-black text-center">
+            <span className="font-silkscreen text-[10px] text-[#ff2a85] font-bold">
+              AUTHENTIC STUDENT PROFILE
             </span>
           </div>
         </div>
 
-        {/* Right Column: Bio & Core Focus */}
+        {/* Right Column: Bio & Focus Areas */}
         <div className="lg:col-span-2 space-y-6">
-          {/* Bio Panel */}
-          <div className="arcade-panel p-6 rounded-lg border-2 border-slate-800">
-            <h3 className="font-chakra text-lg font-bold text-cyan-400 mb-3 uppercase flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-cyan-400" />
+          <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00]">
+            <h3 className="font-silkscreen text-sm font-bold text-[#ffcc00] mb-3 uppercase flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[#ff2a85]" />
               DEVELOPER BIOGRAPHY
             </h3>
-            <p className="font-mono-tech text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className="font-mono-tech text-xs sm:text-sm text-[#f8f6fc] leading-relaxed">
               {personalInfo.bio}
             </p>
           </div>
 
-          {/* Core Technical Focus Areas */}
-          <div className="arcade-panel p-6 rounded-lg border-2 border-slate-800">
-            <h3 className="font-chakra text-lg font-bold text-amber-400 mb-4 uppercase">
-              CORE TECHNICAL INTERESTS & FOCUS
+          <div className="arcade-card-dark p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00]">
+            <h3 className="font-silkscreen text-sm font-bold text-[#ffcc00] mb-4 uppercase">
+              CORE TECHNICAL FOCUS AREAS
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {personalInfo.interests.map((interest, idx) => (
                 <div
                   key={idx}
-                  className="bg-slate-900/80 border border-slate-800 p-3 rounded text-xs font-mono-tech text-slate-200 flex items-start gap-2 hover:border-amber-500/40 transition-colors"
+                  className="bg-[#120a21] border-2 border-[#ff2a85] p-3 text-xs font-mono-tech text-[#f8f6fc] flex items-start gap-2"
                 >
-                  <span className="text-amber-400 font-bold">0{idx + 1}.</span>
+                  <span className="text-[#ffcc00] font-bold font-silkscreen">0{idx + 1}.</span>
                   <span>{interest}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Education Quick Summary */}
-          <div className="arcade-panel p-6 rounded-lg border-2 border-slate-800 flex items-center justify-between flex-wrap gap-4">
+          <div className="arcade-card-cream p-6 border-3 border-black shadow-[6px_6px_0px_#ff2a85] flex items-center justify-between flex-wrap gap-4">
             <div>
-              <div className="font-silkscreen text-[11px] text-slate-400">DEGREE PROGRAM</div>
-              <div className="font-chakra text-lg font-bold text-white">{personalInfo.education.degree}</div>
-              <div className="font-mono-tech text-xs text-amber-400">{personalInfo.education.institution} ({personalInfo.education.period})</div>
+              <div className="font-silkscreen text-[10px] text-[#ff2a85] font-bold">DEGREE PROGRAM</div>
+              <div className="font-silkscreen text-base font-bold text-[#120a21]">{personalInfo.education.degree}</div>
+              <div className="font-mono-tech text-xs text-slate-700 font-bold">{personalInfo.education.institution} ({personalInfo.education.period})</div>
             </div>
             <button
               onClick={() => setStage('EDUCATION')}
               onMouseEnter={() => sound.playHover()}
-              className="arcade-btn arcade-btn-amber px-4 py-2 text-xs"
+              className="arcade-btn arcade-btn-pink px-4 py-2 text-xs"
             >
-              VIEW EDUCATION MAP →
+              LEVEL PROGRESSION →
             </button>
           </div>
         </div>

@@ -16,22 +16,22 @@ export const ProjectArchitecture: React.FC<ProjectArchitectureProps> = ({ steps,
   const currentStep = steps[activeStepIndex] || steps[0];
 
   return (
-    <div className="arcade-panel p-4 sm:p-6 rounded-lg border-2 border-cyan-500/40 my-6">
+    <div className="arcade-card-dark p-4 sm:p-6 border-3 border-[#ff2a85] shadow-[6px_6px_0px_#ffcc00] my-6">
       {/* Header */}
-      <div className="flex items-center justify-between mb-4 pb-3 border-b border-cyan-500/20">
+      <div className="flex items-center justify-between mb-4 pb-3 border-b-2 border-[#ff2a85]">
         <div className="flex items-center gap-2">
-          <Cpu className="w-5 h-5 text-cyan-400 animate-pulse" />
-          <h4 className="font-chakra font-bold text-lg text-cyan-300 uppercase tracking-wider">
-            INTERACTIVE SYSTEM ARCHITECTURE PIPELINE
+          <Cpu className="w-5 h-5 text-[#ffcc00]" />
+          <h4 className="font-silkscreen font-bold text-xs sm:text-sm text-[#ffcc00] uppercase">
+            SYSTEM ARCHITECTURE PIPELINE
           </h4>
         </div>
-        <span className="font-silkscreen text-[10px] text-cyan-400 hidden sm:inline">
+        <span className="font-silkscreen text-[10px] text-white hidden sm:inline">
           [{projectName}]
         </span>
       </div>
 
-      <p className="font-mono-tech text-xs text-slate-400 mb-5">
-        Click any pipeline node to inspect deep execution details, underlying algorithms, and technology stack.
+      <p className="font-mono-tech text-xs text-[#a89cb9] mb-5">
+        Click any pipeline node to inspect execution details and tool parameters.
       </p>
 
       {/* Horizontal Pipeline Node Flow (Desktop & Tablet) */}
@@ -46,25 +46,25 @@ export const ProjectArchitecture: React.FC<ProjectArchitectureProps> = ({ steps,
                   setActiveStepIndex(idx);
                 }}
                 onMouseEnter={() => sound.playHover()}
-                className={`flex-shrink-0 p-3 rounded border-2 transition-all text-left min-w-[140px] max-w-[170px] group ${
+                className={`flex-shrink-0 p-3 text-left min-w-[140px] max-w-[170px] border-2 border-black transition-all ${
                   isActive 
-                    ? 'border-amber-400 bg-amber-950/60 shadow-lg scale-105' 
-                    : 'border-slate-800 bg-slate-900/80 hover:border-cyan-500/40 hover:bg-cyan-950/30'
+                    ? 'bg-[#ff2a85] text-white shadow-[3px_3px_0px_#ffcc00]' 
+                    : 'bg-[#120a21] text-[#f8f6fc] hover:bg-[#ff2a85]/30'
                 }`}
               >
                 <div className="flex items-center justify-between mb-1">
-                  <span className={`font-silkscreen text-[10px] ${isActive ? 'text-amber-400' : 'text-slate-500'}`}>
+                  <span className={`font-silkscreen text-[9px] ${isActive ? 'text-[#ffcc00]' : 'text-[#a89cb9]'}`}>
                     STEP 0{st.step}
                   </span>
-                  {isActive && <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>}
+                  {isActive && <span className="w-2 h-2 rounded-full bg-[#ffcc00] animate-ping"></span>}
                 </div>
-                <div className={`font-chakra font-bold text-xs line-clamp-2 ${isActive ? 'text-white' : 'text-slate-300 group-hover:text-cyan-300'}`}>
+                <div className="font-silkscreen text-[11px] line-clamp-2">
                   {st.name}
                 </div>
               </button>
 
               {idx < steps.length - 1 && (
-                <ChevronRight className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-amber-400' : 'text-slate-700'}`} />
+                <ChevronRight className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-[#ff2a85]' : 'text-[#a89cb9]'}`} />
               )}
             </React.Fragment>
           );
@@ -82,20 +82,20 @@ export const ProjectArchitecture: React.FC<ProjectArchitectureProps> = ({ steps,
                   sound.playHover();
                   setActiveStepIndex(idx);
                 }}
-                className={`p-3 rounded border text-left flex items-center justify-between ${
+                className={`p-3 text-left border-2 border-black flex items-center justify-between ${
                   isActive 
-                    ? 'border-amber-400 bg-amber-950/60 text-white' 
-                    : 'border-slate-800 bg-slate-900 text-slate-300'
+                    ? 'bg-[#ff2a85] text-white font-bold' 
+                    : 'bg-[#120a21] text-[#f8f6fc]'
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <span className="font-silkscreen text-[10px] text-amber-400">0{st.step}.</span>
-                  <span className="font-chakra font-bold text-xs">{st.name}</span>
+                  <span className="font-silkscreen text-[10px] text-[#ffcc00]">0{st.step}.</span>
+                  <span className="font-silkscreen text-xs">{st.name}</span>
                 </div>
-                <span className="font-mono-tech text-[10px] text-slate-400">INSPECT →</span>
+                <span className="font-silkscreen text-[10px]">INSPECT →</span>
               </button>
               {idx < steps.length - 1 && (
-                <ArrowDown className="w-3.5 h-3.5 text-slate-700 mx-auto" />
+                <ArrowDown className="w-3.5 h-3.5 text-[#ff2a85] mx-auto" />
               )}
             </React.Fragment>
           );
@@ -103,30 +103,30 @@ export const ProjectArchitecture: React.FC<ProjectArchitectureProps> = ({ steps,
       </div>
 
       {/* Active Step Details Panel */}
-      <div className="bg-slate-950/90 border border-amber-500/30 p-4 sm:p-5 rounded-lg relative">
+      <div className="arcade-card-cream p-4 sm:p-5 border-3 border-black text-[#120a21]">
         <div className="flex items-center justify-between mb-2">
-          <span className="font-silkscreen text-xs text-amber-400">
+          <span className="font-silkscreen text-xs text-[#ff2a85] font-bold">
             NODE 0{currentStep.step}: {currentStep.name}
           </span>
-          <span className="font-mono-tech text-[11px] text-slate-400">
+          <span className="font-mono-tech text-[11px] text-slate-700 font-bold">
             {currentStep.subtitle}
           </span>
         </div>
 
-        <p className="font-mono-tech text-xs text-slate-200 mb-4 leading-relaxed">
+        <p className="font-mono-tech text-xs text-[#120a21] mb-4 leading-relaxed">
           {currentStep.description}
         </p>
 
         {/* Tech Stack Badges */}
         <div className="mb-4">
-          <span className="font-silkscreen text-[10px] text-slate-400 block mb-2">
+          <span className="font-silkscreen text-[10px] text-slate-700 block mb-2 font-bold">
             TECHNOLOGY ENGINES:
           </span>
           <div className="flex flex-wrap gap-1.5">
             {currentStep.tech.map((t, i) => (
               <span
                 key={i}
-                className="bg-cyan-950/80 border border-cyan-500/40 px-2.5 py-0.5 rounded text-[11px] font-mono-tech text-cyan-300"
+                className="bg-[#120a21] text-white border border-black px-2 py-0.5 text-[10px] font-silkscreen"
               >
                 {t}
               </span>
@@ -134,16 +134,16 @@ export const ProjectArchitecture: React.FC<ProjectArchitectureProps> = ({ steps,
           </div>
         </div>
 
-        {/* Deep Details */}
+        {/* Execution Details */}
         {currentStep.details && currentStep.details.length > 0 && (
-          <div className="border-t border-slate-800 pt-3">
-            <span className="font-silkscreen text-[10px] text-amber-400/80 block mb-2">
+          <div className="border-t-2 border-black pt-3">
+            <span className="font-silkscreen text-[10px] text-[#ff2a85] block mb-2 font-bold">
               EXECUTION PARAMETERS:
             </span>
             <ul className="space-y-1">
               {currentStep.details.map((d, i) => (
-                <li key={i} className="font-mono-tech text-[11px] text-slate-300 flex items-start gap-2">
-                  <span className="text-amber-400 font-bold">•</span>
+                <li key={i} className="font-mono-tech text-[11px] text-slate-800 flex items-start gap-2">
+                  <span className="text-[#ff2a85] font-bold">•</span>
                   <span>{d}</span>
                 </li>
               ))}

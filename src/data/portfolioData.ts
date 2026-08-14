@@ -1,18 +1,18 @@
 import type { PersonalInfo, Project, SkillCategory, Contribution, Milestone } from '../types';
 
 export const personalInfo: PersonalInfo = {
-  name: "K. Harshavardhan",
+  name: "K. HARSHAVARDHAN",
   handle: "harshavardhan-k",
   title: "Computer Science & Engineering Student",
   subtitle: "AI/ML • Software Development • Open Source",
   location: "India",
   status: "AVAILABLE FOR OPPORTUNITIES",
-  bio: "I am a Computer Science & Engineering student at Alliance University specializing in Artificial Intelligence & Machine Learning. I build enterprise GraphRAG pipelines, computer vision anti-spoofing systems, and real-time AI tools. I actively contribute to open-source software and love engineering scalable solutions from first principles.",
+  bio: "Computer Science & Engineering student at Alliance University specializing in Artificial Intelligence & Machine Learning. I build enterprise GraphRAG indexing systems, real-time computer vision anti-spoofing biometrics, and open-source developer tooling.",
   interests: [
-    "Enterprise GraphRAG & Knowledge Graphs",
-    "Agentic AI Tooling & Reranking Architecture",
-    "Real-time Computer Vision & Anti-Spoofing",
-    "Audio Spectral Analysis & Deepfake Detection",
+    "Enterprise GraphRAG & Knowledge Systems",
+    "Agentic AI Frameworks & Tool Use",
+    "Multi-Modal Deepfake & Anti-Spoofing Detection",
+    "High-Performance System Architecture",
     "Open Source Infrastructure"
   ],
   education: {
@@ -20,7 +20,7 @@ export const personalInfo: PersonalInfo = {
     institution: "Alliance University",
     period: "2023 — 2027",
     grade: "Specialization in Artificial Intelligence & Machine Learning",
-    details: "Coursework: Data Structures & Algorithms, Deep Learning, Natural Language Processing, Computer Vision, Knowledge Graphs, Database Systems, Operating Systems."
+    details: "Coursework: Data Structures & Algorithms, Deep Learning, Natural Language Processing, Computer Vision, Database Systems, Operating Systems."
   },
   socials: {
     github: "https://github.com/KHARSHAVARDHAN-eng",
@@ -306,58 +306,35 @@ export const skillCategories: SkillCategory[] = [
   {
     title: "AI & Machine Learning",
     iconName: "BrainCircuit",
-    description: "Deep learning model design, training, optimization, and computer vision pipelines.",
+    description: "Deep learning model design, training, computer vision pipelines, and LLM systems.",
     skills: [
-      { name: "PyTorch", categoryTag: "Deep Learning", highlight: "Custom loss functions, CNNs, Transformers, TorchScript", projectsUsedIn: ["ContentIQ", "FaceAuth AI", "Fake Content Detection"] },
-      { name: "Computer Vision", categoryTag: "Vision & Biometrics", highlight: "OpenCV, MediaPipe, Object Detection, Anti-Spoofing", projectsUsedIn: ["FaceAuth AI", "Fake Content Detection"] },
-      { name: "Scikit-Learn", categoryTag: "Classical ML", highlight: "Feature engineering, ensemble models, clustering", projectsUsedIn: ["Voice Spoof Detection"] },
-      { name: "Audio Processing", categoryTag: "Audio AI", highlight: "Librosa, LFCC/MFCC spectral analysis, RawNet2", projectsUsedIn: ["Voice Spoof Detection"] },
-      { name: "Model Edge Optimization", categoryTag: "Deployment", highlight: "ONNX Runtime, Quantization, TorchScript", projectsUsedIn: ["Voice Spoof Detection", "FaceAuth AI"] }
+      { name: "Python", categoryTag: "Primary Language", highlight: "PyTorch, FastAPI, Async I/O, Metaprogramming", projectsUsedIn: ["All Projects"] },
+      { name: "Machine Learning", categoryTag: "Core AI", highlight: "Feature engineering, ensemble models, loss design", projectsUsedIn: ["Fake Content Detection"] },
+      { name: "RAG & GraphRAG", categoryTag: "Knowledge Systems", highlight: "Hybrid dense/sparse vector & Neo4j graph retrieval", projectsUsedIn: ["ContentIQ GraphRAG"] },
+      { name: "LangChain & LangGraph", categoryTag: "Agent Orchestration", highlight: "Custom tools, stateful graph agents, retrievers", projectsUsedIn: ["ContentIQ GraphRAG"] },
+      { name: "FAISS & Qdrant", categoryTag: "Vector Search", highlight: "HNSW similarity indexing, dense embedding search", projectsUsedIn: ["ContentIQ GraphRAG", "FaceAuth AI"] },
+      { name: "OpenCV & MediaPipe", categoryTag: "Computer Vision", highlight: "Facial landmark tracking, anti-spoofing liveness CNNs", projectsUsedIn: ["FaceAuth AI"] }
     ]
   },
   {
-    title: "GraphRAG & Knowledge Systems",
-    iconName: "Network",
-    description: "Enterprise search, knowledge graphs, and vector retrieval architectures.",
-    skills: [
-      { name: "Neo4j & Cypher", categoryTag: "Knowledge Graphs", highlight: "Entity-relationship graph modeling, multi-hop Cypher queries", projectsUsedIn: ["ContentIQ GraphRAG"] },
-      { name: "Vector Databases", categoryTag: "Vector Search", highlight: "Qdrant, Milvus, ChromaDB, HNSW similarity indexing", projectsUsedIn: ["ContentIQ GraphRAG"] },
-      { name: "LangChain & LlamaIndex", categoryTag: "Orchestration", highlight: "Custom retrievers, tool use, agentic chains", projectsUsedIn: ["ContentIQ GraphRAG"] },
-      { name: "Embeddings & Reranking", categoryTag: "Retrieval", highlight: "BGE, Cross-Encoders, BM25, Reciprocal Rank Fusion", projectsUsedIn: ["ContentIQ GraphRAG"] },
-      { name: "LLM Fine-Tuning & Prompting", categoryTag: "Generative AI", highlight: "Llama 3, Claude 3.5, Structured JSON outputs, vLLM", projectsUsedIn: ["ContentIQ GraphRAG", "Fake Content Detection"] }
-    ]
-  },
-  {
-    title: "Programming Languages",
+    title: "Languages & Software Engineering",
     iconName: "Code2",
-    description: "Core languages for systems software, algorithm design, and application logic.",
+    description: "Core languages for high-throughput backends, algorithms, and web applications.",
     skills: [
-      { name: "Python", categoryTag: "Primary Language", highlight: "Asynchronous I/O, PyTorch, FastAPI, Metaprogramming", projectsUsedIn: ["All Projects"] },
-      { name: "TypeScript / JavaScript", categoryTag: "Web & Full Stack", highlight: "ESNext, Type Safety, Async patterns, React", projectsUsedIn: ["Portfolio", "ContentIQ Frontend"] },
-      { name: "C / C++", categoryTag: "Systems & DSA", highlight: "Data Structures, Memory management, Algorithm design", projectsUsedIn: ["Undergraduate Coursework"] },
-      { name: "SQL", categoryTag: "Relational DBs", highlight: "Complex queries, indexing, schema design", projectsUsedIn: ["Backend Systems"] }
+      { name: "Java", categoryTag: "OOP & Enterprise", highlight: "Object-oriented design, concurrency, memory management", projectsUsedIn: ["Undergraduate Coursework"] },
+      { name: "C++", categoryTag: "Systems & DSA", highlight: "Data structures, memory allocation, algorithm design", projectsUsedIn: ["Undergraduate Coursework"] },
+      { name: "SQL & PostgreSQL", categoryTag: "Relational DBs", highlight: "Complex queries, schema indexing, performance tuning", projectsUsedIn: ["ContentIQ", "Backend Tools"] },
+      { name: "Git & GitHub", categoryTag: "Version Control", highlight: "Branching strategies, open-source pull requests, CI/CD", projectsUsedIn: ["All Projects"] }
     ]
   },
   {
-    title: "Backend & Systems",
-    iconName: "Server",
-    description: "High-throughput API development, containerization, and backend infrastructure.",
-    skills: [
-      { name: "FastAPI", categoryTag: "API Framework", highlight: "Async endpoints, WebSockets, Pydantic v2, OpenAPI", projectsUsedIn: ["ContentIQ", "FaceAuth AI", "Fake Content Detection"] },
-      { name: "Docker", categoryTag: "Containerization", highlight: "Multi-stage builds, container security, docker-compose", projectsUsedIn: ["FaceAuth AI", "ContentIQ"] },
-      { name: "REST & WebSockets", categoryTag: "Networking", highlight: "Real-time video & audio streaming, event-driven APIs", projectsUsedIn: ["Voice Spoof Detection"] },
-      { name: "PostgreSQL & Redis", categoryTag: "Databases & Caching", highlight: "Relational modeling, caching layers, pub-sub queues", projectsUsedIn: ["Backend Tooling"] }
-    ]
-  },
-  {
-    title: "Frontend & Interfaces",
+    title: "Full Stack & Web Technologies",
     iconName: "Layout",
-    description: "Modern interactive web interfaces, graphics, and responsive design systems.",
+    description: "Modern interactive web interfaces, REST APIs, and containerized deployments.",
     skills: [
-      { name: "React", categoryTag: "UI Library", highlight: "Custom hooks, performance optimization, state management", projectsUsedIn: ["Portfolio Redesign", "ContentIQ UI"] },
-      { name: "Tailwind CSS", categoryTag: "Styling System", highlight: "Design tokens, responsive layouts, retro arcade UI", projectsUsedIn: ["Portfolio"] },
-      { name: "Framer Motion & GSAP", categoryTag: "Motion & Animation", highlight: "Cinematic page transitions, arcade HUD motion", projectsUsedIn: ["Portfolio"] },
-      { name: "HTML5 Canvas & WebAudio API", categoryTag: "Interactive Web", highlight: "Synthesized arcade audio SFX, particle starfields", projectsUsedIn: ["Portfolio Sound Synthesizer"] }
+      { name: "React", categoryTag: "Frontend", highlight: "Custom hooks, state management, interactive UI", projectsUsedIn: ["Portfolio"] },
+      { name: "Vite", categoryTag: "Build System", highlight: "Fast bundling, TypeScript configuration, dev server", projectsUsedIn: ["Portfolio"] },
+      { name: "FastAPI", categoryTag: "Backend Framework", highlight: "Async endpoints, WebSockets, OpenAPI schemas", projectsUsedIn: ["ContentIQ", "FaceAuth AI"] }
     ]
   }
 ];
