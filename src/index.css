@@ -34,9 +34,9 @@
   body {
     background-color: #0c0617;
     background-image: 
-      linear-gradient(to right, rgba(160, 50, 130, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(160, 50, 130, 0.07) 1px, transparent 1px);
-    background-size: 8px 8px;
+      linear-gradient(to right, rgba(160, 50, 130, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(160, 50, 130, 0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
     color: var(--ds-text-primary);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
@@ -92,13 +92,13 @@
   box-shadow: inset 0 0 110px rgba(0, 0, 0, 0.75);
 }
 
-/* Micro-Grid Background Helper Class */
+/* Fine Display Micro-Grid Background Helper Class (3px x 3px) */
 .arcade-purple-bg {
   background-color: #0c0617;
   background-image: 
-    linear-gradient(to right, rgba(160, 50, 130, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(160, 50, 130, 0.07) 1px, transparent 1px);
-  background-size: 8px 8px;
+    linear-gradient(to right, rgba(160, 50, 130, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(160, 50, 130, 0.04) 1px, transparent 1px);
+  background-size: 3px 3px;
 }
 
 /* Reference Card System (--ds-card-bg, --ds-card-border, --ds-card-shadow) */
