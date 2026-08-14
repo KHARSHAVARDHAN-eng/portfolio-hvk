@@ -1,3 +1,14 @@
+export type ArcadeStage = 
+  | 'LANDING'
+  | 'MENU'
+  | 'ABOUT'
+  | 'PROJECTS'
+  | 'OPEN_SOURCE'
+  | 'SKILLS'
+  | 'EDUCATION'
+  | 'ACHIEVEMENTS'
+  | 'CONTACT';
+
 export interface PipelineStep {
   step: number;
   name: string;
@@ -26,8 +37,10 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  level: number; // 1-100
+  level?: number;
+  categoryTag?: string;
   highlight?: string;
+  projectsUsedIn?: string[];
   icon?: string;
 }
 
