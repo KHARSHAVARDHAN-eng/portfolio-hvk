@@ -22,7 +22,7 @@ export const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-16 px-4 max-w-6xl mx-auto bg-[#180e28] arcade-purple-grid">
+    <section id="skills" className="py-16 px-4 max-w-6xl mx-auto bg-[#140824] arcade-purple-grid">
       {/* Stage Header */}
       <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
         STAGE 04 — INVENTORY MATRIX

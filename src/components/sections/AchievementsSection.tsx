@@ -5,7 +5,7 @@ import { Trophy, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const AchievementsSection: React.FC = () => {
   return (
-    <section id="achievements" className="py-16 px-4 max-w-5xl mx-auto bg-[#180e28] arcade-purple-grid">
+    <section id="achievements" className="py-16 px-4 max-w-5xl mx-auto bg-[#140824] arcade-purple-grid">
       {/* Stage Header */}
       <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
         STAGE 05 — BOSSES DEFEATED

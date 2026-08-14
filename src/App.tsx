@@ -16,7 +16,7 @@ export function App() {
   const [soundMuted, setSoundMuted] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0d0818] text-[#f8f6fc] selection:bg-[#ff2a85] selection:text-white relative font-chakra overflow-x-hidden">
+    <div className="min-h-screen bg-[#140824] text-[#ffffff] selection:bg-[#ff2a85] selection:text-white relative font-chakra overflow-x-hidden">
       {/* Custom Arcade Cursor */}
       <CustomCursor />
 

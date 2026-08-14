@@ -23,7 +23,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 max-w-5xl mx-auto bg-[#180e28] arcade-purple-grid">
+    <section id="contact" className="py-16 px-4 max-w-5xl mx-auto bg-[#140824] arcade-purple-grid">
       {/* Stage Header Matching Screenshot */}
       <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
         STAGE 06 — CONTINUE? PRESS START.

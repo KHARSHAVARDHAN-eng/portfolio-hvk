@@ -22,7 +22,7 @@ export const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto bg-[#180e28] arcade-purple-grid">
+    <section id="projects" className="py-16 px-4 max-w-6xl mx-auto bg-[#140824] arcade-purple-grid">
       {/* Stage Header */}
       <div className="font-silkscreen text-xs sm:text-sm text-[#ff2a85] font-bold uppercase tracking-wider mb-2">
         STAGE 03 — MISSIONS UNLOCKED

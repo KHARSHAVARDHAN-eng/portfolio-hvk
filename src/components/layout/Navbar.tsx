@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     <>
       {/* Top Header HUD Bar - Matching Screenshot (HI-SCORE 094800 | 1P · K. HARSHAVARDHAN) */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        scrolled ? 'bg-[#180e28]/95 border-b-3 border-[#ff2a85] shadow-lg py-2.5' : 'bg-[#180e28]/85 py-3'
+        scrolled ? 'bg-[#140824]/95 border-b-3 border-[#ff2a85] shadow-lg py-2.5' : 'bg-[#140824]/85 py-3'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Left: HI-SCORE 094800 (Pink Pixel Font) */}

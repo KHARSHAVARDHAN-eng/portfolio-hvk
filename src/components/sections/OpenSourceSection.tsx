@@ -5,7 +5,7 @@ import { GitBranch, Star, ExternalLink, Terminal, ShieldCheck } from 'lucide-rea
 
 export const OpenSourceSection: React.FC = () => {
   return (
-    <section id="open-source" className="py-16 px-4 max-w-5xl mx-auto bg-[#0d0818] arcade-purple-grid">
+    <section id="open-source" className="py-16 px-4 max-w-5xl mx-auto bg-[#140824] arcade-purple-grid">
       {/* Section Header */}
       <div className="mb-8 pb-4 border-b-3 border-[#ff2a85]">
         <div className="inline-block bg-[#ff2a85] text-white border-2 border-black px-3 py-0.5 text-xs font-silkscreen font-bold mb-2">

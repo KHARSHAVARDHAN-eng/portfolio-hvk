@@ -8,7 +8,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[90vh] pt-28 pb-16 flex flex-col justify-center bg-[#180e28] arcade-purple-grid overflow-hidden"
+      className="relative min-h-[90vh] pt-28 pb-16 flex flex-col justify-center bg-[#140824] arcade-purple-grid overflow-hidden"
     >
       <div className="max-w-5xl mx-auto px-4 w-full text-left">
         {/* Level Tag (Matching LV.04 · CS · IIIT-H in Screenshot) */}
