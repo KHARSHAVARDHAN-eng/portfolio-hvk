@@ -1,3 +1,6 @@
+/**
+ * Active stage state within the retro arcade interactive view.
+ */
 export type ArcadeStage = 
   | 'LANDING'
   | 'MENU'
