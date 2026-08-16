@@ -2,20 +2,20 @@
 
 @layer base {
   :root {
-    --ds-background: #0d0519;
-    --ds-surface: #fff5f8;
-    --ds-surface-hover: #fef0f5;
+    --ds-background: #080312;
+    --ds-surface: #faf2fd;
+    --ds-surface-hover: #f5e6fc;
     --ds-card-bg: #ffffff;
-    --ds-card-dark: #1c0d35;
+    --ds-card-dark: #18092c;
     
-    --ds-accent-pink: #ff007f;
-    --ds-accent-yellow: #ffd000;
-    --ds-accent-purple: #a855f7;
-    --ds-accent-cyan: #00f5d4;
+    --ds-accent-pink: #ff0066;
+    --ds-accent-yellow: #ffea00;
+    --ds-accent-purple: #b537f2;
+    --ds-accent-cyan: #00ff9f;
     
     --ds-text-primary: #ffffff;
-    --ds-text-dark: #0f071a;
-    --ds-text-muted: #d4c5e2;
+    --ds-text-dark: #0c0418;
+    --ds-text-muted: #d9c8eb;
     
     --ds-radius-small: 0px;
     --ds-radius-medium: 0px;
@@ -24,28 +24,28 @@
     
     --ds-border-width: 3px;
     --ds-border-color: #000000;
-    --ds-border-pink: #ff007f;
-    --ds-border-yellow: #ffd000;
-    --ds-border-cyan: #00f5d4;
+    --ds-border-pink: #ff0066;
+    --ds-border-yellow: #ffea00;
+    --ds-border-cyan: #00ff9f;
     
-    --ds-shadow-pink: 5px 5px 0px #ff007f;
-    --ds-shadow-yellow: 5px 5px 0px #ffd000;
-    --ds-shadow-cyan: 5px 5px 0px #00f5d4;
+    --ds-shadow-pink: 5px 5px 0px #ff0066;
+    --ds-shadow-yellow: 5px 5px 0px #ffea00;
+    --ds-shadow-cyan: 5px 5px 0px #00ff9f;
     --ds-shadow-dark: 4px 4px 0px #000000;
   }
 
   body {
     background-color: var(--ds-background);
     background-image: 
-      radial-gradient(circle at center, rgba(255, 0, 127, 0.5) 1.2px, transparent 1.2px),
-      linear-gradient(to right, rgba(255, 0, 127, 0.15) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 0, 127, 0.15) 1px, transparent 1px);
+      radial-gradient(circle at center, rgba(255, 0, 102, 0.55) 1.2px, transparent 1.2px),
+      linear-gradient(to right, rgba(0, 255, 159, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 0, 102, 0.12) 1px, transparent 1px);
     background-size: 16px 16px, 16px 16px, 16px 16px;
     color: var(--ds-text-primary);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    selection-background-color: rgba(255, 0, 127, 0.45);
+    selection-background-color: rgba(255, 0, 102, 0.5);
     selection-color: #ffffff;
   }
 }
@@ -100,9 +100,9 @@
 .arcade-purple-bg {
   background-color: var(--ds-background);
   background-image: 
-    radial-gradient(circle at center, rgba(255, 0, 127, 0.5) 1.2px, transparent 1.2px),
-    linear-gradient(to right, rgba(255, 0, 127, 0.15) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 0, 127, 0.15) 1px, transparent 1px);
+    radial-gradient(circle at center, rgba(255, 0, 102, 0.55) 1.2px, transparent 1.2px),
+    linear-gradient(to right, rgba(0, 255, 159, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 102, 0.12) 1px, transparent 1px);
   background-size: 16px 16px, 16px 16px, 16px 16px;
 }
 
