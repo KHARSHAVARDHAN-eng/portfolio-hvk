@@ -2,19 +2,20 @@
 
 @layer base {
   :root {
-    --ds-background: #140824;
+    --ds-background: #0d0519;
     --ds-surface: #fff5f8;
     --ds-surface-hover: #fef0f5;
     --ds-card-bg: #ffffff;
-    --ds-card-dark: #261442;
+    --ds-card-dark: #1c0d35;
     
-    --ds-accent-pink: #ff2a85;
-    --ds-accent-yellow: #ffcc00;
-    --ds-accent-purple: #9d4edd;
+    --ds-accent-pink: #ff007f;
+    --ds-accent-yellow: #ffd000;
+    --ds-accent-purple: #a855f7;
+    --ds-accent-cyan: #00f5d4;
     
     --ds-text-primary: #ffffff;
-    --ds-text-dark: #120a21;
-    --ds-text-muted: #cbbad9;
+    --ds-text-dark: #0f071a;
+    --ds-text-muted: #d4c5e2;
     
     --ds-radius-small: 0px;
     --ds-radius-medium: 0px;
@@ -23,26 +24,28 @@
     
     --ds-border-width: 3px;
     --ds-border-color: #000000;
-    --ds-border-pink: #ff2a85;
-    --ds-border-yellow: #ffcc00;
+    --ds-border-pink: #ff007f;
+    --ds-border-yellow: #ffd000;
+    --ds-border-cyan: #00f5d4;
     
-    --ds-shadow-pink: 5px 5px 0px #ff2a85;
-    --ds-shadow-yellow: 5px 5px 0px #ffcc00;
+    --ds-shadow-pink: 5px 5px 0px #ff007f;
+    --ds-shadow-yellow: 5px 5px 0px #ffd000;
+    --ds-shadow-cyan: 5px 5px 0px #00f5d4;
     --ds-shadow-dark: 4px 4px 0px #000000;
   }
 
   body {
-    background-color: #140824;
+    background-color: var(--ds-background);
     background-image: 
-      radial-gradient(circle at center, rgba(255, 42, 133, 0.45) 1.2px, transparent 1.2px),
-      linear-gradient(to right, rgba(255, 42, 133, 0.12) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 42, 133, 0.12) 1px, transparent 1px);
+      radial-gradient(circle at center, rgba(255, 0, 127, 0.5) 1.2px, transparent 1.2px),
+      linear-gradient(to right, rgba(255, 0, 127, 0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 0, 127, 0.15) 1px, transparent 1px);
     background-size: 16px 16px, 16px 16px, 16px 16px;
     color: var(--ds-text-primary);
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    selection-background-color: rgba(255, 42, 133, 0.4);
+    selection-background-color: rgba(255, 0, 127, 0.45);
     selection-color: #ffffff;
   }
 }
@@ -95,11 +98,11 @@
 
 /* Dot Grid Background Class */
 .arcade-purple-bg {
-  background-color: #140824;
+  background-color: var(--ds-background);
   background-image: 
-    radial-gradient(circle at center, rgba(255, 42, 133, 0.45) 1.2px, transparent 1.2px),
-    linear-gradient(to right, rgba(255, 42, 133, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 42, 133, 0.12) 1px, transparent 1px);
+    radial-gradient(circle at center, rgba(255, 0, 127, 0.5) 1.2px, transparent 1.2px),
+    linear-gradient(to right, rgba(255, 0, 127, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 127, 0.15) 1px, transparent 1px);
   background-size: 16px 16px, 16px 16px, 16px 16px;
 }
 
@@ -115,13 +118,13 @@
 
 .arcade-card-cream:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0px #ff2a85;
+  box-shadow: 7px 7px 0px var(--ds-accent-pink);
 }
 
 .arcade-card-dark {
   background-color: var(--ds-card-dark);
   color: var(--ds-text-primary);
-  border: 3px solid #ff2a85;
+  border: 3px solid var(--ds-accent-pink);
   border-radius: 0px;
   box-shadow: var(--ds-shadow-yellow);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -129,7 +132,7 @@
 
 .arcade-card-dark:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 7px 7px 0px #ffcc00;
+  box-shadow: 7px 7px 0px var(--ds-accent-yellow);
 }
 
 /* Reference Button System */
@@ -152,45 +155,62 @@
   background-color: var(--ds-accent-pink);
   color: #ffffff;
   border: 3px solid #ffffff;
-  box-shadow: 4px 4px 0px #ff2a85, 4px 4px 0px 3px #000000;
+  box-shadow: 4px 4px 0px var(--ds-accent-pink), 4px 4px 0px 3px #000000;
 }
 
 .arcade-btn-pink:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #ff2a85, 6px 6px 0px 3px #000000;
+  box-shadow: 6px 6px 0px var(--ds-accent-pink), 6px 6px 0px 3px #000000;
 }
 
 .arcade-btn-pink:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #ff2a85, 2px 2px 0px 3px #000000;
+  box-shadow: 2px 2px 0px var(--ds-accent-pink), 2px 2px 0px 3px #000000;
 }
 
 .arcade-btn-yellow {
   background-color: var(--ds-accent-yellow);
   color: #120a21;
   border: 3px solid #000000;
-  box-shadow: 4px 4px 0px #ff2a85;
+  box-shadow: 4px 4px 0px var(--ds-accent-pink);
 }
 
 .arcade-btn-yellow:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px #ff2a85;
+  box-shadow: 6px 6px 0px var(--ds-accent-pink);
 }
 
 .arcade-btn-yellow:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #ff2a85;
+  box-shadow: 2px 2px 0px var(--ds-accent-pink);
+}
+
+.arcade-btn-cyan {
+  background-color: var(--ds-accent-cyan);
+  color: #0f071a;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px var(--ds-accent-pink);
+}
+
+.arcade-btn-cyan:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--ds-accent-pink);
+}
+
+.arcade-btn-cyan:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--ds-accent-pink);
 }
 
 .arcade-btn-outline {
   background-color: #201138;
   color: #ffffff;
-  border: 3px solid #ff2a85;
+  border: 3px solid var(--ds-accent-pink);
   box-shadow: 4px 4px 0px #000000;
 }
 
 .arcade-btn-outline:hover {
-  background-color: #ff2a85;
+  background-color: var(--ds-accent-pink);
   color: #ffffff;
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0px #000000;
@@ -208,16 +228,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #140824;
+  background: var(--ds-background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff2a85;
+  background: var(--ds-accent-pink);
   border-radius: 0px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffcc00;
+  background: var(--ds-accent-yellow);
 }
 
 /* Animations */
