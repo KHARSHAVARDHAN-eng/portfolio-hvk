@@ -29,6 +29,11 @@ class ArcadeSoundSystem {
     return this.isMuted;
   }
 
+  public toggleMute(): boolean {
+    this.isMuted = !this.isMuted;
+    return this.isMuted;
+  }
+
   // Soft high-frequency arcade hover chirp
   public playHover() {
     if (this.isMuted) return;
