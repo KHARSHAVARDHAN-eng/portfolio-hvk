@@ -1,6 +1,7 @@
-// Synthesized Web Audio API Arcade Sound System
-// Creates authentic retro arcade sound effects without external audio files
-
+/**
+ * Synthesized Web Audio API Arcade Sound Engine
+ * Generates dynamic retro sound effects on-the-fly without requiring external audio assets.
+ */
 class ArcadeSoundSystem {
   private audioCtx: AudioContext | null = null;
   private isMuted: boolean = false;
