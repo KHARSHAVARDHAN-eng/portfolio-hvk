@@ -12,6 +12,9 @@ export type ArcadeStage =
   | 'ACHIEVEMENTS'
   | 'CONTACT';
 
+/**
+ * Data structure representing an architectural or workflow pipeline step.
+ */
 export interface PipelineStep {
   step: number;
   name: string;
@@ -21,6 +24,9 @@ export interface PipelineStep {
   details: string[];
 }
 
+/**
+ * Technical project item schema displayed across portfolio showcase & interactive modals.
+ */
 export interface Project {
   id: string;
   title: string;
