@@ -1,32 +1,36 @@
-# React + TypeScript + Vite
+# K. Harshavardhan — Developer Portfolio & Arcade Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+[![React](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-purple.svg)](https://vite.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0-38bdf8.svg)](https://tailwindcss.com/)
 
-Currently, two official plugins are available:
+An interactive, high-performance developer portfolio and retro arcade experience featuring Enterprise GraphRAG pipelines, anti-spoofing biometrics, and open-source contributions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Key Features
 
-## React Compiler
+- **Interactive Retro Arcade Interface**: Switch seamlessly between modern UI card views and nostalgic arcade stages.
+- **Synthesized Web Audio Engine**: Dynamic retro sound effects synthesized on-the-fly without external audio assets.
+- **Enterprise AI Showcase**: Deep dive into GraphRAG, Computer Vision, and Audio AI projects.
+- **Interactive Terminal & Pipeline Visualizer**: Live command-line exploration and multi-step pipeline architectures.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the Oxlint configuration
+- **Framework**: React 19 + TypeScript
+- **Bundler**: Vite with SWC/Oxc support
+- **Styling**: Tailwind CSS v4 + Custom Design Tokens
+- **Icons & UI**: Lucide React + Retro Font Stack
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## 💻 Quick Start
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
