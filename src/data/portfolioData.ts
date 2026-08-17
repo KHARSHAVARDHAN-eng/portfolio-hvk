@@ -1,3 +1,7 @@
+/**
+ * Portfolio Static Data & Showcase Records
+ * Contains personal profile info, featured AI/ML projects, skills matrix, open-source PRs, and milestones.
+ */
 import type { PersonalInfo, Project, SkillCategory, Contribution, Milestone } from '../types';
 
 export const personalInfo: PersonalInfo = {
