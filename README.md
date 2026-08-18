@@ -30,7 +30,19 @@ npm install
 # Start local development server
 npm run dev
 
+# Run oxlint checks
+npm run lint
+
 # Build for production
 npm run build
 ```
+
+## 📁 Project Structure
+
+- `src/components/`: Modular React UI components, arcade stages, canvas elements, and modal views.
+- `src/context/`: Global application state management (audio settings, theme context).
+- `src/data/`: Structured portfolio information, project details, and experience history.
+- `src/types/`: Centralized TypeScript interface definitions and data models.
+- `src/utils/`: Audio synth engine, sound effects, and helper routines.
+
 
