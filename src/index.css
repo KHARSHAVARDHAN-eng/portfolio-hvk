@@ -223,6 +223,11 @@
 }
 
 /* Custom Scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ds-accent-pink) var(--ds-background);
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
