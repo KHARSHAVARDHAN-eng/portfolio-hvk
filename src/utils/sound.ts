@@ -22,20 +22,31 @@ class ArcadeSoundSystem {
     }
   }
 
+  /**
+   * Set global mute state for arcade sound synthesis.
+   */
   public setMuted(muted: boolean) {
     this.isMuted = muted;
   }
 
+  /**
+   * Get current mute state.
+   */
   public getMuted(): boolean {
     return this.isMuted;
   }
 
+  /**
+   * Toggle global mute state and return new state.
+   */
   public toggleMute(): boolean {
     this.isMuted = !this.isMuted;
     return this.isMuted;
   }
 
-  // Soft high-frequency arcade hover chirp
+  /**
+   * Play soft high-frequency arcade hover chirp on element hover.
+   */
   public playHover() {
     if (this.isMuted) return;
     try {
