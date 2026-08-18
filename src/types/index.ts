@@ -44,6 +44,9 @@ export interface Project {
   pipelineSteps?: PipelineStep[];
 }
 
+/**
+ * Individual skill representation containing proficiency and usage details.
+ */
 export interface Skill {
   name: string;
   level?: number;
@@ -53,6 +56,9 @@ export interface Skill {
   icon?: string;
 }
 
+/**
+ * Grouped skill category containing a list of related technical competencies.
+ */
 export interface SkillCategory {
   title: string;
   iconName: string;
@@ -60,6 +66,9 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+/**
+ * Open-source contribution or community project pull request item.
+ */
 export interface Contribution {
   title: string;
   repo: string;
@@ -71,6 +80,9 @@ export interface Contribution {
   link: string;
 }
 
+/**
+ * Career milestone, experience highlight, or hackathon achievement entry.
+ */
 export interface Milestone {
   id: string;
   title: string;
@@ -83,6 +95,9 @@ export interface Milestone {
   badgeText: string;
 }
 
+/**
+ * Developer personal profile data including education and contact handles.
+ */
 export interface PersonalInfo {
   name: string;
   handle: string;
