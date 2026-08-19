@@ -16,8 +16,8 @@ export function App() {
       {/* CRT Scanline Filter Overlay */}
       {crtEnabled && (
         <>
-          <div className="crt-overlay" />
-          <div className="crt-vignette" />
+          <div className="crt-overlay" aria-hidden="true" />
+          <div className="crt-vignette" aria-hidden="true" />
         </>
       )}
 
