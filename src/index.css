@@ -255,3 +255,13 @@ html {
 .animate-blink {
   animation: blink 1.2s infinite steps(1);
 }
+
+/* Retro Neon Text Glow Utilities */
+.text-glow-pink {
+  text-shadow: 0 0 8px rgba(255, 0, 106, 0.6), 0 0 16px rgba(255, 0, 106, 0.3);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 8px rgba(0, 255, 159, 0.6), 0 0 16px rgba(0, 255, 159, 0.3);
+}
+
