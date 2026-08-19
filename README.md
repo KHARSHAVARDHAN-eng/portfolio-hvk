@@ -45,4 +45,6 @@ npm run build
 - `src/types/`: Centralized TypeScript interface definitions and data models.
 - `src/utils/`: Audio synth engine, sound effects, and helper routines.
 
+## 🤝 Contributing
 
+Contributions, issues, and feature requests are welcome! Ensure code quality standards are met by running `npm run lint` and `npm run build` before opening a pull request.
