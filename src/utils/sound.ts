@@ -18,7 +18,9 @@ class ArcadeSoundSystem {
       }
     }
     if (this.audioCtx && this.audioCtx.state === 'suspended') {
-      this.audioCtx.resume();
+      this.audioCtx.resume().catch(() => {
+        // Handle autoplay policy restriction silently
+      });
     }
   }
 
