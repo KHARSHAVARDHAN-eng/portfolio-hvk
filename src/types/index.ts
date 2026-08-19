@@ -107,6 +107,7 @@ export interface PersonalInfo {
   status: string;
   bio: string;
   interests: string[];
+  /** Academic credentials and background */
   education: {
     degree: string;
     institution: string;
@@ -114,6 +115,7 @@ export interface PersonalInfo {
     grade: string;
     details: string;
   };
+  /** External profile links and contact coordinates */
   socials: {
     github: string;
     linkedin: string;
