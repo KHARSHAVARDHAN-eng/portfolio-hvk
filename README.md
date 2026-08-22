@@ -21,6 +21,15 @@ An interactive, high-performance developer portfolio and retro arcade experience
 - **Styling**: Tailwind CSS v4 + Custom Design Tokens
 - **Icons & UI**: Lucide React + Retro Font Stack
 
+## ⌨️ Interactive Controls & Shortcuts
+
+| Shortcut / Control | Functionality |
+| :--- | :--- |
+| `~` / `` ` `` | Toggle Interactive Developer Terminal Overlay |
+| `M` / `Mute Icon` | Toggle Synthesized Web Audio Sound Effects |
+| `Esc` | Close Active Detail Modal / Terminal Overlay |
+| `Tab` / `Shift+Tab` | Navigate Interactive Elements via Keyboard |
+
 ## 💻 Quick Start
 
 ```bash
