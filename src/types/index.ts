@@ -1,16 +1,17 @@
 /**
  * Active stage state within the retro arcade interactive view.
+ * Controls which virtual cabinet room or showcase view is currently active.
  */
 export type ArcadeStage = 
-  | 'LANDING'
-  | 'MENU'
-  | 'ABOUT'
-  | 'PROJECTS'
-  | 'OPEN_SOURCE'
-  | 'SKILLS'
-  | 'EDUCATION'
-  | 'ACHIEVEMENTS'
-  | 'CONTACT';
+  | 'LANDING'     // Opening retro boot splash screen
+  | 'MENU'        // Main interactive hub/selector
+  | 'ABOUT'       // Developer profile and background overview
+  | 'PROJECTS'    // Interactive showcase of technical projects
+  | 'OPEN_SOURCE' // Open-source contributions and pull requests
+  | 'SKILLS'      // Tech stack matrix and domain expertise
+  | 'EDUCATION'   // Academic background and credentials
+  | 'ACHIEVEMENTS' // Hackathons, internships, and milestones
+  | 'CONTACT';    // Communication channels and contact form
 
 /**
  * Data structure representing an architectural or workflow pipeline step.
