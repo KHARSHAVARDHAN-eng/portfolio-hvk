@@ -5,6 +5,11 @@ export interface CommandResponse {
   content: string;
 }
 
+/**
+ * Process raw terminal user input string and resolve structured CommandResponse.
+ * @param cmd Raw shell command input string
+ * @returns Structured CommandResponse object
+ */
 export const processCommand = (cmd: string): CommandResponse => {
   const cleanCmd = cmd.trim().toLowerCase();
 
