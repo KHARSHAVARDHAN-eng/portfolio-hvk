@@ -35,6 +35,9 @@ export const personalInfo: PersonalInfo = {
   }
 };
 
+/**
+ * Featured AI/ML, Computer Vision, and Full Stack Projects Collection
+ */
 export const projects: Project[] = [
   {
     id: "content-iq-graphrag",
