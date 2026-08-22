@@ -2,6 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "1.0.0",
+  "license": "MIT",
   "description": "Developer Portfolio & Retro Arcade Showcase featuring GraphRAG, Computer Vision, and Audio AI",
   "author": "K. Harshavardhan",
   "keywords": [
