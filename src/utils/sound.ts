@@ -75,7 +75,9 @@ class ArcadeSoundSystem {
     }
   }
 
-  // Retro stage select two-tone chime
+  /**
+   * Play retro stage select two-tone chime.
+   */
   public playSelect() {
     if (this.isMuted) return;
     try {
@@ -100,11 +102,13 @@ class ArcadeSoundSystem {
       osc.start(now);
       osc.stop(now + 0.22);
     } catch {
-      // Ignore
+      // Ignore audio context initialization failures
     }
   }
 
-  // Classic Arcade Game Start / Coin Insert Fanfare
+  /**
+   * Play classic arcade game start / coin insert fanfare.
+   */
   public playStart() {
     if (this.isMuted) return;
     try {
