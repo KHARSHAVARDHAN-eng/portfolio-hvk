@@ -9,6 +9,7 @@ interface MagneticButtonProps {
   variant?: 'primary' | 'secondary' | 'outline' | 'glass';
   target?: string;
   rel?: string;
+  ariaLabel?: string;
 }
 
 export const MagneticButton: React.FC<MagneticButtonProps> = ({
@@ -18,7 +19,8 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   href,
   variant = 'primary',
   target,
-  rel
+  rel,
+  ariaLabel
 }) => {
   const buttonRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -70,11 +72,11 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
 
   if (href) {
     return (
-      <a href={href} onClick={onClick} target={target} rel={rel} className="inline-block">
+      <a href={href} onClick={onClick} target={target} rel={rel} aria-label={ariaLabel} className="inline-block">
         {content}
       </a>
     );
   }
 
-  return <button onClick={onClick} className="inline-block outline-none">{content}</button>;
+  return <button onClick={onClick} aria-label={ariaLabel} className="inline-block outline-none">{content}</button>;
 };
