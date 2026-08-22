@@ -265,3 +265,15 @@ html {
   text-shadow: 0 0 8px rgba(0, 255, 159, 0.6), 0 0 16px rgba(0, 255, 159, 0.3);
 }
 
+/* Text Selection Highlights */
+::selection {
+  background-color: var(--ds-accent-pink);
+  color: #ffffff;
+}
+
+/* Accessibility Focus Ring Utility */
+.focus-arcade:focus-visible {
+  outline: 2px dashed var(--ds-accent-cyan);
+  outline-offset: 4px;
+}
+
